@@ -1,11 +1,14 @@
-import type { NextPage } from 'next'
+import type { GetServerSideProps, GetStaticProps, NextPage } from 'next'
+import { useEffect, useState } from 'react'
 
-const Home: NextPage = () => {
+const Home = () => {
+
   return (
     <div>
-      <h1>Hello World</h1>
+      <input />
     </div>
   )
 }
 
 export default Home
+
