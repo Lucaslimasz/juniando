@@ -1,35 +1,20 @@
-{
-  "extends": [
-    "eslint:recommended",
-    "plugin:import/errors",
-    "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended",
-    "plugin:react-hooks/recommended",
-    "prettier"
-  ],
-  "rules": {
-    "react/prop-types": "off",
-    "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off",
-    "react/self-closing-comp": "warn"
-  },
-  "plugins": ["react", "import", "jsx-a11y"],
-  "parserOptions": {
-    "ecmaVersion": 2021,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
-  "env": {
-    "es6": true,
-    "browser": true,
-    "jest": true,
-    "node": true
-  },
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  }
+{ 
+  "root": true, 
+  "parser": "@typescript-eslint/parser", 
+  "plugins": [ 
+    "@typescript-eslint", 
+    "no-loops", 
+    "prettier" 
+  ], 
+  "extends": [ 
+    "eslint:recommended", 
+    "plugin:@typescript-eslint/eslint-recommended", 
+    "plugin:@typescript-eslint/recommended", 
+    "prettier" 
+  ], 
+  "rules": { 
+    "no-loops/no-loops": 2,
+    "no-console": 1, 
+    "prettier/prettier": 2 
+  } 
 }
