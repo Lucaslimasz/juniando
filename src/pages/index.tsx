@@ -1,14 +1,11 @@
-import type { GetServerSideProps, GetStaticProps, NextPage } from 'next'
-import { useEffect, useState } from 'react'
+import styled from "styled-components";
 
 const Home = () => {
-
   return (
     <div>
       <input />
     </div>
-  )
-}
+  );
+};
 
-export default Home
-
+export default Home;
