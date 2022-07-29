@@ -1,6 +1,22 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
+  :root {
+    --white: #FFFFFF;
+    --yellow: #FBC139;
+
+    --principal-blue: #0565FF;
+    --main-blue: #004AC0;
+    --dark-blue: #003384;
+
+    --dark-100: #202020;
+    --dark-80: #312E38;
+    --dark-80: #808080;
+    --dark-50: #C8C8C8;
+
+    --light-900: #F4EDE8;
+  }
+
   *{
     margin: 0;
     padding: 0;
@@ -10,8 +26,15 @@ export default createGlobalStyle`
   body, input, textarea, button{
     font: 400 1rem 'Roboto', sans-serif;
   }
+  
   button{
     cursor: pointer;
+
+    transition: filter .2s ease;
+
+    &:hover:not(:disabled) {
+      filter: brightness(0.9);
+    }
   }
   
   button, input {
