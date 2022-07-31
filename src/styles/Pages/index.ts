@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   > img {
     width: 50%;
     object-fit: cover;
+    filter: opacity(0.5) drop-shadow(0 0 0 blue) contrast(150%);
   }
 
   @media (max-width: 850px) {
