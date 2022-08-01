@@ -1,9 +1,6 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 import Button from "@components/Button";
 import { Input } from "@components/Input";
@@ -14,15 +11,9 @@ const Login = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    AOS.init({
-      duration: 900,
-    });
-  }, []);
-
   return (
     <S.Wrapper>
-      <S.Container data-aos="fade-left">
+      <S.Container>
         <form>
           <Image
             src="/assets/icons/logo.svg"
@@ -54,7 +45,7 @@ const Login = () => {
           </span>
         </form>
       </S.Container>
-      <img src="/assets/login.png" alt="Login" data-aos="fade-right" />
+      <img src="/assets/login.png" alt="Login" />
     </S.Wrapper>
   );
 };
