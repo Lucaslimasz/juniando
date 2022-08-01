@@ -1,5 +1,8 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import Button from "@components/Button";
 import { Input } from "@components/Input";
@@ -10,10 +13,16 @@ const Register = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 900,
+    });
+  }, []);
+
   return (
     <S.Wrapper>
-      <img src="/assets/login.png" alt="Login" />
-      <S.Container>
+      <img src="/assets/login.png" alt="Login" data-aos="fade-left" />
+      <S.Container data-aos="fade-right">
         <form>
           <img src="/assets/icons/logo.svg" alt="Juniando" />
           <h1>Registre-se</h1>
