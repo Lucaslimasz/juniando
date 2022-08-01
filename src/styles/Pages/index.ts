@@ -66,11 +66,9 @@ export const Container = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      img {
-        margin-right: 0.75rem;
-      }
       a {
         color: var(--yellow);
+        margin-left: 0.75rem;
       }
     }
   }

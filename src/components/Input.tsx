@@ -5,6 +5,7 @@ import React, {
 } from "react";
 
 import * as S from "@styles/Components/Input";
+import Image from "next/image";
 
 interface IInput extends InputHTMLAttributes<HTMLInputElement> {
   icon?: string;
@@ -15,7 +16,7 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
 ) => {
   return (
     <S.Container>
-      {icon && <img src={icon} alt="e-mail" />}
+      {icon && <Image src={icon} alt="e-mail" width={24} height={22} />}
       <S.Input ref={ref} {...rest} />
     </S.Container>
   );

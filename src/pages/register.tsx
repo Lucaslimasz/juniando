@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -24,7 +25,12 @@ const Register = () => {
       <img src="/assets/login.png" alt="Login" data-aos="fade-left" />
       <S.Container data-aos="fade-right">
         <form>
-          <img src="/assets/icons/logo.svg" alt="Juniando" />
+          <Image
+            src="/assets/icons/logo.svg"
+            alt="Juniando"
+            width={252}
+            height={202}
+          />
           <h1>Registre-se</h1>
           <Input
             icon="/assets/icons/email.svg"
@@ -44,7 +50,12 @@ const Register = () => {
           <Button title="Criar conta" type="submit" />
 
           <span>
-            <img src="/assets/icons/arrow-left.svg" alt="Criar" />
+            <Image
+              src="/assets/icons/arrow-left.svg"
+              alt="Criar"
+              width={24}
+              height={24}
+            />
             <Link href="/">Voltar para o login</Link>
           </span>
         </form>

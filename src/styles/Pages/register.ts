@@ -67,10 +67,8 @@ export const Container = styled.div`
       align-items: center;
       justify-content: center;
       margin-top: 2rem;
-      img {
-        margin-right: 0.75rem;
-      }
       a {
+        margin-left: 0.75rem;
         color: var(--white);
       }
     }

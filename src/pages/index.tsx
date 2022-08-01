@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import Button from "@components/Button";
 import { Input } from "@components/Input";
@@ -14,7 +15,12 @@ const Login = () => {
     <S.Wrapper>
       <S.Container>
         <form>
-          <img src="/assets/icons/logo.svg" alt="Juniando" />
+          <Image
+            src="/assets/icons/logo.svg"
+            alt="Juniando"
+            width={252}
+            height={200}
+          />
           <h1>Faça seu login</h1>
           <Input
             icon="/assets/icons/email.svg"
@@ -29,7 +35,12 @@ const Login = () => {
           <Button title="Entrar" type="submit" />
           <Link href="/">Esqueceu a senha?</Link>
           <span>
-            <img src="/assets/icons/create.svg" alt="Criar" />
+            <Image
+              src="/assets/icons/create.svg"
+              alt="Criar"
+              width={24}
+              height={24}
+            />
             <Link href="/register">Criar conta</Link>
           </span>
         </form>
