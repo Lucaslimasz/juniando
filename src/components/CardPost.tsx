@@ -4,7 +4,7 @@ import * as S from "@styles/Components/CardPost";
 
 import React, { HTMLAttributes } from "react";
 
-interface IDiv extends HTMLAttributes<HTMLDivElement> {
+interface IPropsCardPost extends HTMLAttributes<HTMLDivElement> {
   title: string;
   content: string;
   author: string;
@@ -19,7 +19,7 @@ export default function CardPost({
   date,
   image,
   ...rest
-}: IDiv) {
+}: IPropsCardPost) {
   return (
     <S.Container {...rest}>
       <Image src={image} width={360} height={227} />

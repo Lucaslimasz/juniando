@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 360px;
-  height: 227px;
+  width: 22.5rem;
+  height: 14.125rem;
 
   .InfosContainer {
-    padding: 35px 30px;
-    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.25);
-    margin: -10px 0px 0px 0px;
-    border-radius: 0px 0px 14px 14px;
+    padding: 2.25rem 1.875rem;
+    box-shadow: 0rem 0.0625rem 0.625rem rgba(0, 0, 0, 0.25);
+    margin: -0.625rem 0rem 0rem 0rem;
+    border-radius: 0rem 0rem 0.875rem 0.875rem;
   }
 
   > .InfosContainer div {
@@ -18,26 +18,26 @@ export const Container = styled.div`
   }
 
   > .InfosContainer div span {
-    width: 5px;
-    height: 5px;
+    width: 0.375rem;
+    height: 0.375rem;
     border-radius: 50%;
-    margin: 0px 14px;
+    margin: 0rem 0.875rem;
     background-color: var(--blue-principal);
   }
 
   h3 {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 600;
   }
 
   h1 {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 700;
-    margin: 10px 0;
+    margin: 0.625rem 0;
   }
 
   p {
-    font-size: 12px;
+    font-size: 0.75rem;
     line-height: 1.1rem;
   }
 `;

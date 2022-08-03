@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from "react";
 
 import * as S from "@styles/Components/Thumbnail";
 
-interface IDiv extends HTMLAttributes<HTMLDivElement> {
+interface IPropsThumbnail extends HTMLAttributes<HTMLDivElement> {
   category: string;
   title: string;
   author: string;
@@ -17,7 +17,7 @@ export default function Thumbnail({
   date,
   background,
   ...rest
-}: IDiv) {
+}: IPropsThumbnail) {
   return (
     <S.Container {...rest} bg={background}>
       <S.ContainerCategory>
