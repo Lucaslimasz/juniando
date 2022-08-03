@@ -3,5 +3,6 @@
   "eslint.codeActionsOnSave.rules": null,
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "files.eol": "\n"
 }
