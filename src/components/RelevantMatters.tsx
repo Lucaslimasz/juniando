@@ -1,4 +1,5 @@
 import * as S from "@styles/Components/RelevantMatters";
+import Image from "next/image";
 
 const RelevantMatters = () => {
   return (
@@ -8,23 +9,43 @@ const RelevantMatters = () => {
         <hr />
         <ul>
           <li>
-            <img src="/assets/icons/matters-icon.svg" alt="Matter Arrow" />
-            JavaScript
+            <Image
+              src="/assets/icons/matters-icon.svg"
+              alt="Matter Arrow"
+              width={7}
+              height={12}
+            />
+            <span>JavaScript</span>
           </li>
           <hr />
           <li>
-            <img src="/assets/icons/matters-icon.svg" alt="Matter Arrow" />
-            Reactjs
+            <Image
+              src="/assets/icons/matters-icon.svg"
+              alt="Matter Arrow"
+              width={7}
+              height={12}
+            />
+            <span>Reactjs</span>
           </li>
           <hr />
           <li>
-            <img src="/assets/icons/matters-icon.svg" alt="Matter Arrow" />
-            Vuejs
+            <Image
+              src="/assets/icons/matters-icon.svg"
+              alt="Matter Arrow"
+              width={7}
+              height={12}
+            />
+            <span>Vuejs</span>
           </li>
           <hr />
           <li>
-            <img src="/assets/icons/matters-icon.svg" alt="Matter Arrow" />
-            AngularJs
+            <Image
+              src="/assets/icons/matters-icon.svg"
+              alt="Matter Arrow"
+              width={7}
+              height={12}
+            />
+            <span>AngularJs</span>
           </li>
           <hr />
         </ul>

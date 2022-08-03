@@ -1,12 +1,20 @@
-import * as S from "@styles/Components/Header";
 import Link from "next/link";
+import Image from "next/image";
+
 import Button from "@components/Button";
+
+import * as S from "@styles/Components/Header";
 
 const Header = () => {
   return (
     <S.Wrapper>
       <S.Container>
-        <img src="/assets/icons/logo-header.svg" alt="Juniando" />
+        <Image
+          src="/assets/icons/logo-header.svg"
+          alt="Juniando"
+          width={174}
+          height={41}
+        />
         <Link href="/home">Home</Link>
         <Link href="/home">Artigos</Link>
         <Link href="/">Vagas</Link>

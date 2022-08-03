@@ -48,8 +48,8 @@ export const Container = styled.div`
       line-height: 1.25rem;
       color: var(--dark-100);
 
-      > img {
-        margin-right: 0.75rem;
+      > span {
+        margin-left: 0.75rem;
       }
     }
 
