@@ -34,7 +34,7 @@ export const Container = styled.div`
       position: absolute;
       width: 0;
       height: 0.125rem;
-      background: var(--main-blue);
+      background: var(--blue-principal);
       left: 0;
       bottom: -0.25rem;
       transition: 0.2s;
@@ -59,7 +59,7 @@ export const Container = styled.div`
     height: 2.75rem;
     border-radius: 1.5rem;
     color: white;
-    background: var(--principal-blue);
+    background: var(--blue-principal);
     font-family: Montserrat;
     font-style: normal;
     font-weight: 700;
