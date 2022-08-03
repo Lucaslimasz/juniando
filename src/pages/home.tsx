@@ -8,7 +8,6 @@ const Home = () => {
   return (
     <S.Wrapper>
       <Header />
-      <RelevantMatters />
       <Footer />
     </S.Wrapper>
   );
