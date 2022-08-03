@@ -5,16 +5,16 @@ interface IStyleThumbnail {
 }
 
 export const Container = styled.div<IStyleThumbnail>`
+  font-family: montserrat, Roboto, Ubuntu, sans-serif;
   width: 46.625rem;
   height: 25.75rem;
-  background-image: url(bg);
+  background-image: ${(props) => `url(${props.bg})`};
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 `;
 
 export const ContainerCategory = styled.div`
-  width: 100%;
   position: absolute;
   margin: 15rem 0rem 0rem 2.5rem;
 `;
@@ -50,8 +50,8 @@ export const DivInfo = styled.div`
 `;
 
 export const DotDetail = styled.span`
-  width: 0.3125rem;
-  height: 0.3125rem;
+  width: 0.375rem;
+  height: 0.375rem;
   border-radius: 50%;
   margin: 0rem 0.875rem;
   background-color: var(--blue-principal);

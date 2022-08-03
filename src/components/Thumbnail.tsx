@@ -1,8 +1,6 @@
-import React, { HTMLAttributes } from "react";
-
 import * as S from "@styles/Components/Thumbnail";
 
-interface IPropsThumbnail extends HTMLAttributes<HTMLDivElement> {
+interface IPropsThumbnail {
   category: string;
   title: string;
   author: string;
@@ -16,10 +14,9 @@ export default function Thumbnail({
   author,
   date,
   background,
-  ...rest
 }: IPropsThumbnail) {
   return (
-    <S.Container {...rest} bg={background}>
+    <S.Container bg={background}>
       <S.ContainerCategory>
         <S.ButtonCategory>
           <S.TextButton>{category}</S.TextButton>

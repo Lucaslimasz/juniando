@@ -2,13 +2,14 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 22.5rem;
-  height: 14.125rem;
+  font-family: montserrat, Roboto, Ubuntu, sans-serif;
 
   .InfosContainer {
     padding: 2.25rem 1.875rem;
     box-shadow: 0rem 0.0625rem 0.625rem rgba(0, 0, 0, 0.25);
     margin: -0.625rem 0rem 0rem 0rem;
     border-radius: 0rem 0rem 0.875rem 0.875rem;
+    background-color: var(--white);
   }
 
   > .InfosContainer div {
