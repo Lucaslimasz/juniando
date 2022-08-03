@@ -5,23 +5,24 @@ import Image from "next/image";
 import Button from "@components/Button";
 import { Input } from "@components/Input";
 
-import * as S from "@styles/Pages";
+import * as S from "@styles/Pages/register";
 
-const Login = () => {
+const Register = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
   return (
     <S.Wrapper>
+      <img src="/assets/login.png" alt="Login" />
       <S.Container>
         <form>
           <Image
             src="/assets/icons/logo.svg"
             alt="Juniando"
             width={252}
-            height={200}
+            height={202}
           />
-          <h1>Faça seu login</h1>
+          <h1>Registre-se</h1>
           <Input
             icon="/assets/icons/email.svg"
             placeholder="E-mail"
@@ -32,22 +33,26 @@ const Login = () => {
             placeholder="Senha"
             ref={passwordRef}
           />
-          <Button title="Entrar" type="submit" />
-          <Link href="/">Esqueceu a senha?</Link>
+          <Input
+            icon="/assets/icons/password.svg"
+            placeholder="Confirmar senha"
+            ref={passwordRef}
+          />
+          <Button title="Criar conta" type="submit" />
+
           <span>
             <Image
-              src="/assets/icons/create.svg"
+              src="/assets/icons/arrow-left.svg"
               alt="Criar"
               width={24}
               height={24}
             />
-            <Link href="/register">Criar conta</Link>
+            <Link href="/">Voltar para o login</Link>
           </span>
         </form>
       </S.Container>
-      <img src="/assets/login.png" alt="Login" />
     </S.Wrapper>
   );
 };
 
-export default Login;
+export default Register;

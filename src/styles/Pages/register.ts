@@ -66,9 +66,10 @@ export const Container = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-top: 2rem;
       a {
-        color: var(--yellow);
         margin-left: 0.75rem;
+        color: var(--white);
       }
     }
   }

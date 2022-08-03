@@ -5,9 +5,9 @@ export default createGlobalStyle`
     --white: #FFFFFF;
     --yellow: #FBC139;
 
-    --principal-blue: #0565FF;
-    --main-blue: #004AC0;
-    --dark-blue: #003384;
+    --blue-principal: #0565FF;
+    --blue-mid: #004AC0;
+    --blue-dark: #003384;
 
     --dark-100: #202020;
     --dark-80: #312E38;
@@ -37,7 +37,7 @@ export default createGlobalStyle`
     }
   }
   
-  button, input {
+  button, input, textarea {
     border: none;
     outline: 0;
   }
