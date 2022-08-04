@@ -22,7 +22,7 @@ export const ContainerCategory = styled.div`
 export const ButtonCategory = styled.div`
   display: flex;
   justify-content: center;
-  padding: 0.625rem 1.25rem;
+  padding: 0.625rem 1.375rem;
   border-radius: 0.875rem;
   width: 7rem;
   background-color: var(--blue-principal);
@@ -60,4 +60,5 @@ export const DotDetail = styled.span`
 export const Text = styled.h3`
   font-size: 1.25rem;
   color: var(--white);
+  font-weight: 600;
 `;

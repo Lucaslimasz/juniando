@@ -21,9 +21,9 @@ export default function CardPost({
       <Image src={image} width={360} height={227} />
       <div className="InfosContainer">
         <div>
-          <h3>{author}</h3>
+          <p>{author}</p>
           <span></span>
-          <h3>{date}</h3>
+          <p>{date}</p>
         </div>
         <h1>{title}</h1>
         <p>{content}</p>
