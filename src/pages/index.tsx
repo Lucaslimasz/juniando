@@ -28,7 +28,17 @@ const Login = () => {
       }}
     >
       {(formik) => {
-        const { errors, values, touched, handleChange } = formik;
+        const { values, touched, handleChange } = formik;
+
+        const errors = { email: "", password: "" };
+
+        if (!values.email) {
+          errors.email = "E-mail é obrigatório";
+        } else if (
+          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+        ) {
+          errors.email = "Verifique o e-mail digitado";
+        }
 
         const errorEmail = errors.email && touched.email;
         const errorPassowrd = errors.password && touched.password;
