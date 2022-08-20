@@ -9,16 +9,20 @@ import Image from "next/image";
 
 interface IInput extends InputHTMLAttributes<HTMLInputElement> {
   icon?: string;
+  error?: string | boolean;
 }
 const InputBase: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
-  { icon, ...rest },
+  { icon, error, ...rest },
   ref
 ) => {
   return (
-    <S.Container>
-      {icon && <Image src={icon} alt="e-mail" width={24} height={22} />}
-      <S.Input ref={ref} {...rest} />
-    </S.Container>
+    <S.Wrapper>
+      <S.Container error={!!error}>
+        {icon && <Image src={icon} alt="e-mail" width={24} height={22} />}
+        <S.Input ref={ref} {...rest} />
+      </S.Container>
+      <S.Error>{error}</S.Error>
+    </S.Wrapper>
   );
 };
 

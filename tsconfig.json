@@ -23,6 +23,7 @@
       "@interfaces/*": ["interfaces/*"],
       "@config/*": ["config/*"],
       "@utils/*": ["utils/*"],
+      "@formik/*": ["formik/*"],
     },
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

@@ -46,12 +46,6 @@ export const Container = styled.div`
       font-weight: bold;
     }
 
-    > div {
-      & + div {
-        margin-top: 0.5rem;
-      }
-    }
-
     > button {
       margin-top: 1.5rem;
     }
