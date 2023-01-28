@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   background-color: var(--white);
   align-items: center;
   justify-content: center;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
 `;
 
 export const Container = styled.div`
@@ -16,6 +17,8 @@ export const Container = styled.div`
   justify-content: space-around;
   align-items: center;
   margin: 0 9.75rem;
+
+  max-width: 69.375rem;
 
   > img {
     width: 11rem;

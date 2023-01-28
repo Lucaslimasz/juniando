@@ -1,5 +1,5 @@
-/* eslint-disable prettier/prettier */
 import Header from "@components/Header";
+
 import * as S from "@styles/Pages/home";
 
 const Home = () => {
