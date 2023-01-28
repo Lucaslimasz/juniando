@@ -1,5 +1,4 @@
 import CardPost from "@components/CardPost";
-import Footer from "@components/Footer";
 import Header from "@components/Header";
 import RelevantMatters from "@components/RelevantMatters";
 import Thumbnail from "@components/Thumbnail";
