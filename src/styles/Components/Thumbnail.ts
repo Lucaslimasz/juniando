@@ -12,6 +12,21 @@ export const Container = styled.div<IStyleThumbnail>`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  position: relative;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(
+      0deg,
+      rgba(0, 51, 132, 1) 0%,
+      rgba(0, 51, 132, 0) 100%
+    );
+
+    position: absolute;
+    bottom: 0;
+  }
 `;
 
 export const ContainerCategory = styled.div`

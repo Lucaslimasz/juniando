@@ -1,24 +1,33 @@
 import styled from "styled-components";
 
+interface HeaderPropsCss {
+  route: string;
+}
+
 export const Wrapper = styled.div`
   width: 100%;
-  padding: 1.5rem;
+  padding: 1.25rem 0;
   display: flex;
   background-color: var(--white);
   align-items: center;
   justify-content: center;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+
+  position: fixed;
+  top: 0;
+
+  z-index: 1000;
 `;
 
 export const Container = styled.div`
   width: 100%;
 
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  margin: 0 9.75rem;
 
   max-width: 69.375rem;
+  padding: 0 2rem;
 
   > img {
     width: 11rem;
@@ -50,7 +59,7 @@ export const Container = styled.div`
       color: var(--dark-100);
     }
     &:active:active {
-      color: red;
+      color: var(--blue-principal);
     }
   }
 
@@ -58,15 +67,14 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
     width: 7rem;
     height: 2.75rem;
     border-radius: 1.5rem;
     color: white;
     background: var(--blue-principal);
     font-family: Montserrat;
-    font-style: normal;
     font-weight: 700;
     font-size: 1rem;
-    line-height: 1.25rem;
   }
 `;

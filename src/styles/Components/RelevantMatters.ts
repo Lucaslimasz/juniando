@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   width: 30%;
   display: flex;
-  margin: 1.25rem auto;
 `;
 
 export const Container = styled.div`
@@ -16,6 +15,9 @@ export const Container = styled.div`
   padding: 1.25rem;
   box-shadow: 0.125rem 0.125rem 1.25rem rgba(0, 0, 0, 0.2);
   border-radius: 0.875rem;
+
+  position: sticky !important;
+  top: 100px;
 
   > h2 {
     margin-top: 0.5rem;

@@ -16,7 +16,7 @@ const Header = () => {
           height={41}
         />
         <Link href="/home">Home</Link>
-        <Link href="/home">Artigos</Link>
+        <Link href="/articles">Artigos</Link>
         <Link href="/">Vagas</Link>
         <Link href="/">Sobre nós</Link>
         <Button title="Sign In" type="submit" />
