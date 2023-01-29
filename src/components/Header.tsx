@@ -38,7 +38,7 @@ const Header = () => {
           height={41}
         />
         {routes.map(({ name, route }) => (
-          <Link href={route}>
+          <Link key={name} href={route}>
             <a
               style={
                 route === router.pathname
