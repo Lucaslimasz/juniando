@@ -16,6 +16,22 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     gap: 2rem;
+
+    @media (max-width: 560px) {
+      width: 116%;
+      left: 0;
+      position: relative;
+      left: -10%;
+      top: -23px;
+    }
+
+    @media (max-width: 360px) {
+      width: 120%;
+      left: 0;
+      position: relative;
+      left: -10%;
+      top: -23px;
+    }
   }
 `;
 
@@ -40,9 +56,52 @@ export const MostViewed = styled.section`
     }
   }
 
-  > div {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
+  @media (max-width: 560px) {
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 360px) {
+    margin-top: 0.75rem;
+  }
+`;
+
+export const ContainerCardPost = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+
+  @media (max-width: 1120px) {
+    gap: 1rem;
+  }
+
+  @media (max-width: 1104px) {
+    // cardpost size alteration
+    > div {
+      max-width: 20rem;
+    }
+  }
+
+  @media (max-width: 1104px) {
+    // cardpost size alteration
+    > div {
+      max-width: 19rem;
+    }
+  }
+  @media (max-width: 944px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    > div {
+      max-width: 100%;
+      > span {
+        max-width: 100%;
+        width: 100% !important;
+      }
+    }
+  }
+
+  @media (max-width: 944px) {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
   }
 `;

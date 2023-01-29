@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   width: 30%;
   display: flex;
+
+  @media (max-width: 1000px) {
+    display: none;
+  }
 `;
 
 export const Container = styled.div`

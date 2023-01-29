@@ -90,18 +90,18 @@ const Home = () => {
 
           <S.MostViewed>
             <h2>Mais visualizados</h2>
-            <div>
+            <S.ContainerCardPost>
               {posts.map((post) => (
                 <CardPost
                   key={post.id}
-                  title="Por que e pra que usar ReactJs?"
-                  content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown"
-                  author="Lucas Lima"
-                  date="09 de Jul de 2022"
-                  image="/assets/banner-thumbnail.png"
+                  title={post.title}
+                  content={post.content}
+                  author={post.author}
+                  date={post.date}
+                  image={post.image}
                 />
               ))}
-            </div>
+            </S.ContainerCardPost>
           </S.MostViewed>
         </S.Container>
       </S.Wrapper>

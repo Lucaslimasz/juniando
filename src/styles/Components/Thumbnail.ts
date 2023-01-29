@@ -27,6 +27,10 @@ export const Container = styled.div<IStyleThumbnail>`
     position: absolute;
     bottom: 0;
   }
+
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
 `;
 
 export const ContainerCategory = styled.div`
@@ -56,6 +60,11 @@ export const Title = styled.h1`
   margin: 1rem 0rem 0.75rem 0rem;
   color: var(--white);
   font-weight: 700;
+  max-width: 80%;
+
+  @media (max-width: 560px) {
+    font-size: 1.4rem;
+  }
 `;
 
 export const DivInfo = styled.div`
@@ -76,4 +85,7 @@ export const Text = styled.h3`
   font-size: 1.25rem;
   color: var(--white);
   font-weight: 600;
+  @media (max-width: 560px) {
+    font-size: 1rem;
+  }
 `;

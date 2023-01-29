@@ -26,7 +26,7 @@ export const Container = styled.div`
   padding: 0 2rem;
 
   > img {
-    width: 11rem;
+    width: 8rem;
     object-fit: cover;
   }
 
@@ -75,5 +75,18 @@ export const Container = styled.div`
     font-family: Montserrat;
     font-weight: 700;
     font-size: 1rem;
+  }
+
+  @media (max-width: 630px) {
+    > a {
+      display: none;
+    }
+  }
+
+  @media (max-width: 400px) {
+    // logo
+    > span {
+      width: 10rem !important;
+    }
   }
 `;
