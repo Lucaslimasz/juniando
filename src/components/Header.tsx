@@ -1,11 +1,33 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import Button from "@components/Button";
 
 import * as S from "@styles/Components/Header";
 
 const Header = () => {
+  const router = useRouter();
+
+  const routes = [
+    {
+      name: "Home",
+      route: "/home",
+    },
+    {
+      name: "Artigos",
+      route: "/articles",
+    },
+    {
+      name: "Vagas",
+      route: "/",
+    },
+    {
+      name: "Sobre nós",
+      route: "/",
+    },
+  ];
+
   return (
     <S.Wrapper>
       <S.Container>
@@ -15,10 +37,25 @@ const Header = () => {
           width={174}
           height={41}
         />
-        <Link href="/home">Home</Link>
-        <Link href="/articles">Artigos</Link>
-        <Link href="/">Vagas</Link>
-        <Link href="/">Sobre nós</Link>
+        {routes.map(({ name, route }) => (
+          <Link href={route}>
+            <a
+              style={
+                route === router.pathname
+                  ? {
+                      textDecorationLine: "underline",
+                      textDecorationStyle: "solid",
+                      textDecorationColor: "#0565FF",
+                      textUnderlineOffset: 7,
+                      color: "#202020",
+                    }
+                  : {}
+              }
+            >
+              {name}
+            </a>
+          </Link>
+        ))}
         <Button title="Sign In" type="submit" />
       </S.Container>
     </S.Wrapper>

@@ -37,6 +37,12 @@ export const Container = styled.div`
     font-weight: 600;
     font-family: Montserrat;
 
+    &:last-child {
+      text-decoration: underline;
+      color: var(--dark-100);
+      background: red;
+    }
+
     &:after {
       content: "";
       position: absolute;
@@ -53,9 +59,6 @@ export const Container = styled.div`
     }
     &:hover {
       color: var(--dark-100);
-    }
-    &:active:active {
-      color: var(--blue-principal);
     }
   }
 

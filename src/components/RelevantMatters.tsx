@@ -47,7 +47,6 @@ const RelevantMatters = () => {
             />
             <span>AngularJs</span>
           </li>
-          <hr />
         </ul>
       </S.Container>
     </S.Wrapper>
