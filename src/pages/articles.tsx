@@ -3,154 +3,11 @@ import Header from "@components/Header";
 import Tags from "@components/Tags";
 
 import * as S from "@styles/Pages/articles";
-import { useState } from "react";
 
-const Home = () => {
-  const posts = [
-    {
-      id: String(Math.random()),
-      tag: "Reactjs",
-      posts: [
-        {
-          id: String(Math.random()),
-          title: "Por que e pra que usar ReactJs?",
-          content:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown when an unknown when an unknown when an unknown",
-          author: "Lucas Lima",
-          date: "09 de Jul de 2022",
-          image: "/assets/banner-thumbnail.png",
-        },
-        {
-          id: String(Math.random()),
-          title: "Por que e pra que usar ReactJs?",
-          content:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown",
-          author: "Lucas Lima",
-          date: "09 de Jul de 2022",
-          image: "/assets/banner-thumbnail.png",
-        },
-        {
-          id: String(Math.random()),
-          title: "Por que e pra que usar ReactJs?",
-          content:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown",
-          author: "Lucas Lima",
-          date: "09 de Jul de 2022",
-          image: "/assets/banner-thumbnail.png",
-        },
-        {
-          id: String(Math.random()),
-          title: "Por que e pra que usar ReactJs?",
-          content:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown",
-          author: "Lucas Lima",
-          date: "09 de Jul de 2022",
-          image: "/assets/banner-thumbnail.png",
-        },
-        {
-          id: String(Math.random()),
-          title: "Por que e pra que usar ReactJs?",
-          content:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown",
-          author: "Lucas Lima",
-          date: "09 de Jul de 2022",
-          image: "/assets/banner-thumbnail.png",
-        },
-        {
-          id: String(Math.random()),
-          title: "Por que e pra que usar ReactJs?",
-          content:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown",
-          author: "Lucas Lima",
-          date: "09 de Jul de 2022",
-          image: "/assets/banner-thumbnail.png",
-        },
-        {
-          id: String(Math.random()),
-          title: "Por que e pra que usar ReactJs?",
-          content:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown",
-          author: "Lucas Lima",
-          date: "09 de Jul de 2022",
-          image: "/assets/banner-thumbnail.png",
-        },
-      ],
-    },
-    {
-      id: String(Math.random()),
-      tag: "Javascript",
-      posts: [
-        {
-          id: String(Math.random()),
-          title: "Por que e pra que usar Javascript?",
-          content:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown when an unknown when an unknown when an unknown",
-          author: "Lucas Lima",
-          date: "09 de Jul de 2022",
-          image: "/assets/banner-thumbnail.png",
-        },
-        {
-          id: String(Math.random()),
-          title: "Por que e pra que usar Javascript?",
-          content:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown",
-          author: "Lucas Lima",
-          date: "09 de Jul de 2022",
-          image: "/assets/banner-thumbnail.png",
-        },
-        {
-          id: String(Math.random()),
-          title: "Por que e pra que usar Javascript?",
-          content:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown",
-          author: "Lucas Lima",
-          date: "09 de Jul de 2022",
-          image: "/assets/banner-thumbnail.png",
-        },
-        {
-          id: String(Math.random()),
-          title: "Por que e pra que usar Javascript?",
-          content:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown",
-          author: "Lucas Lima",
-          date: "09 de Jul de 2022",
-          image: "/assets/banner-thumbnail.png",
-        },
-        {
-          id: String(Math.random()),
-          title: "Por que e pra que usar Javascript?",
-          content:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown",
-          author: "Lucas Lima",
-          date: "09 de Jul de 2022",
-          image: "/assets/banner-thumbnail.png",
-        },
-        {
-          id: String(Math.random()),
-          title: "Por que e pra que usar Javascript?",
-          content:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown",
-          author: "Lucas Lima",
-          date: "09 de Jul de 2022",
-          image: "/assets/banner-thumbnail.png",
-        },
-        {
-          id: String(Math.random()),
-          title: "Por que e pra que usar Javascript?",
-          content:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown",
-          author: "Lucas Lima",
-          date: "09 de Jul de 2022",
-          image: "/assets/banner-thumbnail.png",
-        },
-      ],
-    },
-  ];
-  const [tag, setTag] = useState<string>(posts[0].tag);
+import { usePosts } from "hooks/usePosts";
 
-  const handleTag = (title: string) => {
-    setTag(title);
-  };
+const Articles = () => {
+  const { handleTag, posts, tag } = usePosts();
 
   return (
     <>
@@ -189,4 +46,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Articles;
