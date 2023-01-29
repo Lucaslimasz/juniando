@@ -11,7 +11,7 @@ export default createGlobalStyle`
 
     --dark-100: #202020;
     --dark-80: #312E38;
-    --dark-80: #808080;
+    --dark-60: #808080;
     --dark-50: #C8C8C8;
 
     --light-900: #F4EDE8;
@@ -23,8 +23,12 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  body {
+    background-color: var(--light-900);
+  }
+
   body, input, textarea, button{
-    font: 400 1rem 'Roboto', sans-serif;
+    font: 400 1rem 'Montserrat', sans-serif;
   }
   
   button{
