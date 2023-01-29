@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 22.5rem;
+  width: 100%;
+  max-width: 21rem;
   font-family: montserrat, sans-serif;
 
   img {
