@@ -8,7 +8,6 @@ import * as S from "@styles/Pages/articles";
 
 import { usePosts } from "hooks/usePosts";
 import { useEffect } from "react";
-import { GetServerSideProps } from "next";
 
 const Articles = () => {
   const router = useRouter();
@@ -19,7 +18,7 @@ const Articles = () => {
       return handleTag(router.query.tag.toString());
     }
 
-    return handleTag(posts[0].tag);
+    return handleTag(posts[0]?.tag);
   }, []);
 
   return (
@@ -60,12 +59,3 @@ const Articles = () => {
 };
 
 export default Articles;
-
-// export const getServerSideProps: GetServerSideProps = () => {
-//   const jhone = "o nome dele";
-//   return {
-//     props: {
-//       jhone,
-//     },
-//   };
-// };

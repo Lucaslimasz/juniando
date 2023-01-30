@@ -22,7 +22,7 @@ const RelevantMatters = () => {
                   height={12}
                 />
                 <p>{post.tag}</p>
-                <b>( {post.posts.length} )</b>
+                <b>({post.posts.length})</b>
               </li>
             </Link>
           ))}

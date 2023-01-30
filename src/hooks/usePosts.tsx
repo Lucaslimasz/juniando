@@ -30,9 +30,9 @@ export function PostsProvider({ children }: IPostsProvider) {
 
   useEffect(() => {
     (async () => {
-      const { data } = await api.get("/posts");
-      setPosts(data);
-      setTag(data[0].tag);
+      const { data } = await api.get("/63d734ddace6f33a22cdac20");
+      setPosts(data.record.posts);
+      setTag(data.record.posts[0].tag);
     })();
   }, []);
 

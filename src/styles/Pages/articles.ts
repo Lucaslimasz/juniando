@@ -14,10 +14,26 @@ export const Container = styled.div`
 `;
 
 export const Posts = styled.div`
-  display: flex;
-  flex-wrap: wrap;
   gap: 1.5rem;
   margin-top: 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  @media (max-width: 980px) {
+    grid-template-columns: repeat(2, 1fr);
+    > div {
+      max-width: 100%;
+      > span {
+        max-width: 100%;
+        width: 100% !important;
+      }
+    }
+  }
+
+  @media (max-width: 500px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const Tags = styled.div`
