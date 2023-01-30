@@ -45,8 +45,6 @@ export const Container = styled.div`
     list-style-type: none;
 
     > li {
-      margin-top: 0.5rem;
-      margin-bottom: 0.375rem;
       font-family: "Montserrat";
       font-style: normal;
       font-weight: 500;
@@ -54,14 +52,30 @@ export const Container = styled.div`
       line-height: 1.25rem;
       color: var(--dark-100);
 
-      > span {
-        margin-left: 0.75rem;
+      padding: 0.7rem 0;
+      width: 100%;
+
+      cursor: pointer;
+
+      display: flex;
+
+      & + li {
+        border-top: 0.1rem solid var(--dark-50);
+      }
+
+      p {
+        margin-left: 0.5rem;
+      }
+
+      > b {
+        margin-left: auto;
+        font-size: 14px;
+        font-weight: 500;
       }
     }
 
     > hr {
       width: 15.375rem;
-      border-top: 0.0625rem solid var(--dark-50);
     }
   }
 `;

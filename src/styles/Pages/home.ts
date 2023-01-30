@@ -76,21 +76,8 @@ export const ContainerCardPost = styled.div`
   }
 
   @media (max-width: 1104px) {
-    // cardpost size alteration
-    > div {
-      max-width: 20rem;
-    }
-  }
-
-  @media (max-width: 1104px) {
-    // cardpost size alteration
-    > div {
-      max-width: 19rem;
-    }
-  }
-  @media (max-width: 944px) {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     > div {
       max-width: 100%;
       > span {
@@ -101,7 +88,10 @@ export const ContainerCardPost = styled.div`
   }
 
   @media (max-width: 944px) {
-    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 500px) {
     grid-template-columns: repeat(1, 1fr);
   }
 `;

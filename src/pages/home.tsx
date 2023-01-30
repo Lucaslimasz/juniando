@@ -8,7 +8,6 @@ import { usePosts } from "hooks/usePosts";
 
 const Home = () => {
   const { posts } = usePosts();
-
   const postPrincipal = posts[0]?.posts;
 
   return (
