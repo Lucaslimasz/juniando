@@ -4,73 +4,11 @@ import RelevantMatters from "@components/RelevantMatters";
 import Thumbnail from "@components/Thumbnail";
 
 import * as S from "@styles/Pages/home";
+import { usePosts } from "hooks/usePosts";
 
 const Home = () => {
-  const posts = [
-    {
-      id: String(Math.random()),
-      title: "Por que e pra que usar ReactJs?",
-      content:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown when an unknown when an unknown when an unknown",
-      author: "Lucas Lima",
-      date: "09 de Jul de 2022",
-      image: "/assets/banner-thumbnail.png",
-    },
-    {
-      id: String(Math.random()),
-      title: "Por que e pra que usar ReactJs?",
-      content:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown",
-      author: "Lucas Lima",
-      date: "09 de Jul de 2022",
-      image: "/assets/banner-thumbnail.png",
-    },
-    {
-      id: String(Math.random()),
-      title: "Por que e pra que usar ReactJs?",
-      content:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown",
-      author: "Lucas Lima",
-      date: "09 de Jul de 2022",
-      image: "/assets/banner-thumbnail.png",
-    },
-    {
-      id: String(Math.random()),
-      title: "Por que e pra que usar ReactJs?",
-      content:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown",
-      author: "Lucas Lima",
-      date: "09 de Jul de 2022",
-      image: "/assets/banner-thumbnail.png",
-    },
-    {
-      id: String(Math.random()),
-      title: "Por que e pra que usar ReactJs?",
-      content:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown",
-      author: "Lucas Lima",
-      date: "09 de Jul de 2022",
-      image: "/assets/banner-thumbnail.png",
-    },
-    {
-      id: String(Math.random()),
-      title: "Por que e pra que usar ReactJs?",
-      content:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown",
-      author: "Lucas Lima",
-      date: "09 de Jul de 2022",
-      image: "/assets/banner-thumbnail.png",
-    },
-    {
-      id: String(Math.random()),
-      title: "Por que e pra que usar ReactJs?",
-      content:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown",
-      author: "Lucas Lima",
-      date: "09 de Jul de 2022",
-      image: "/assets/banner-thumbnail.png",
-    },
-  ];
+  const { posts } = usePosts();
+  const postPrincipal = posts[0]?.posts;
 
   return (
     <>
@@ -91,7 +29,7 @@ const Home = () => {
           <S.MostViewed>
             <h2>Mais visualizados</h2>
             <S.ContainerCardPost>
-              {posts.map((post) => (
+              {postPrincipal?.map((post) => (
                 <CardPost
                   key={post.id}
                   title={post.title}

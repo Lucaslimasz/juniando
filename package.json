@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
+    "axios": "^1.2.6",
     "formik": "^2.2.9",
     "next": "12.2.3",
     "next-images": "^1.8.4",

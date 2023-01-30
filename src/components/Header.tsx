@@ -6,8 +6,11 @@ import Button from "@components/Button";
 
 import * as S from "@styles/Components/Header";
 
+import { usePosts } from "hooks/usePosts";
+
 const Header = () => {
   const router = useRouter();
+  const { posts } = usePosts();
 
   const routes = [
     {
@@ -37,25 +40,33 @@ const Header = () => {
           width={174}
           height={41}
         />
-        {routes.map(({ name, route }) => (
-          <Link className="menus" key={name} href={route}>
-            <a
-              style={
-                route === router.pathname
-                  ? {
-                      textDecorationLine: "underline",
-                      textDecorationStyle: "solid",
-                      textDecorationColor: "#0565FF",
-                      textUnderlineOffset: 7,
-                      color: "#202020",
-                    }
-                  : {}
-              }
-            >
-              {name}
-            </a>
-          </Link>
-        ))}
+        {routes.map(({ name, route }) => {
+          let routeName = "";
+          if (route === "/articles") {
+            routeName = `/articles/${posts[0]?.tag}`;
+          } else {
+            routeName = route;
+          }
+          return (
+            <Link className="menus" key={name} href={routeName}>
+              <a
+                style={
+                  route === `/${router.pathname.split("/")[1]}`
+                    ? {
+                        textDecorationLine: "underline",
+                        textDecorationStyle: "solid",
+                        textDecorationColor: "#0565FF",
+                        textUnderlineOffset: 7,
+                        color: "#202020",
+                      }
+                    : {}
+                }
+              >
+                {name}
+              </a>
+            </Link>
+          );
+        })}
         <Button title="Sign In" type="submit" />
       </S.Container>
     </S.Wrapper>

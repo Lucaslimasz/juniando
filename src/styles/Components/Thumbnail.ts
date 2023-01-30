@@ -36,6 +36,7 @@ export const Container = styled.div<IStyleThumbnail>`
 export const ContainerCategory = styled.div`
   position: absolute;
   margin: 15rem 0rem 0rem 2.5rem;
+  bottom: 2rem;
 `;
 
 export const ButtonCategory = styled.div`
