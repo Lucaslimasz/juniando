@@ -34,12 +34,14 @@ const Header = () => {
   return (
     <S.Wrapper>
       <S.Container>
-        <Image
-          src="/assets/icons/logo-header.svg"
-          alt="Juniando"
-          width={174}
-          height={41}
-        />
+        <Link href="/home">
+          <Image
+            src="/assets/icons/logo-header.svg"
+            alt="Juniando"
+            width={174}
+            height={41}
+          />
+        </Link>
         {routes.map(({ name, route }) => {
           let routeName = "";
           if (route === "/articles") {
