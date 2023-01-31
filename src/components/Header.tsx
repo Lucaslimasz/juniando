@@ -23,7 +23,7 @@ const Header = () => {
     },
     {
       name: "Vagas",
-      route: "/",
+      route: "/jobs",
     },
     {
       name: "Sobre nós",
