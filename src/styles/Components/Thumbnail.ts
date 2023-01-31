@@ -14,6 +14,10 @@ export const Container = styled.div<IStyleThumbnail>`
   background-position: center;
   position: relative;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &::before {
     content: "";
     width: 100%;

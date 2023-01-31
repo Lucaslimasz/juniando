@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import * as S from "@styles/Components/CardPost";
 
 interface IPropsCardPost {
@@ -16,8 +17,9 @@ export default function CardPost({
   date,
   image,
 }: IPropsCardPost) {
+  const router = useRouter();
   return (
-    <S.Container>
+    <S.Container onClick={() => router.push("/details")}>
       <Image src={image} width={360} height={227} />
       <div className="InfosContainer">
         <div>
