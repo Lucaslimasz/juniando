@@ -19,6 +19,10 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Global />
       <Head>
         <title>Juniando</title>
+        <meta
+          name="description"
+          content="Oportunidades de trabalho para Júniors e vagas de programação em FrontEnd, BackEnd, Estágio, DevOps, Javascript, Reactjs, Vuejs,... para você Júnior!"
+        />
       </Head>
       <S.Wrapper>
         {isOutOfApplication && <Header />}
