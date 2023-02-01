@@ -8,6 +8,4 @@ export const Container = styled.button<{ active: boolean }>`
   font-family: Montserrat;
   font-weight: bold;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-
-  margin-top: 120px;
 `;

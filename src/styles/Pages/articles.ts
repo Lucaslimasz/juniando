@@ -32,4 +32,5 @@ export const Posts = styled.div`
 export const Tags = styled.div`
   display: flex;
   gap: 1rem;
+  padding-top: 120px;
 `;

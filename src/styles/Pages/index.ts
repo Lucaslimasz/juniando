@@ -41,7 +41,7 @@ export const Container = styled.div`
     > h1 {
       font-size: 1.5rem;
       margin: 3rem 0 1.5rem 0;
-      color: var(--light-900);
+      color: var(--light-700);
       font-family: Montserrat, sans-serif;
       font-weight: bold;
     }
@@ -53,7 +53,7 @@ export const Container = styled.div`
     > a {
       margin: 1.5rem 0 4rem;
       font-weight: 300;
-      color: var(--light-900);
+      color: var(--light-700);
     }
 
     > span {

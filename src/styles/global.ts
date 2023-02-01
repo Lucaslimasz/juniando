@@ -14,7 +14,8 @@ export default createGlobalStyle`
     --dark-60: #808080;
     --dark-50: #C8C8C8;
 
-    --light-900: #F4EDE8;
+    --light-900: #F6F7FC;
+    --light-700: #F4EDE8;
   }
 
   *{
@@ -24,7 +25,7 @@ export default createGlobalStyle`
   }
 
   body {
-    background-color: var(--light-900);
+    background-color: var(--light-700);
   }
 
   body, input, textarea, button{
