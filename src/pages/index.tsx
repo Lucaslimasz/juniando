@@ -1,97 +1,52 @@
-import { Formik, Form } from "formik";
+import CardPost from "@components/CardPost";
+import RelevantMatters from "@components/RelevantMatters";
+import Thumbnail from "@components/Thumbnail";
 
-import Link from "next/link";
-import Image from "next/image";
+import * as S from "@styles/Pages/home";
+import { formatDatePost } from "@utils/format-date-post";
+import { generateImageLink } from "@utils/generate-image-link";
+import { usePosts } from "hooks/usePosts";
+import LoadingPage from "@components/LoadingPage";
 
-import Button from "@components/Button";
-import { Input } from "@components/Input";
+const Home = () => {
+  const { posts } = usePosts();
 
-import * as S from "@styles/Pages";
-import { initialValues, SignInSchema } from "@formik/SignInSchema";
-
-interface ISignInValues {
-  email: string;
-  password: string;
-}
-
-const Login = () => {
-  const submitForm = (values: ISignInValues) => {
-    console.log(values);
-  };
+  if (!posts) {
+    return <LoadingPage />;
+  }
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={SignInSchema}
-      onSubmit={(values) => {
-        submitForm(values);
-      }}
-    >
-      {(formik) => {
-        const { values, touched, handleChange } = formik;
+    <S.Container>
+      <div>
+        <Thumbnail
+          category="Featured"
+          title="Por que e pra que usar ReactJs?"
+          author="Lucas Lima"
+          date="09 de Jul de 2022"
+          background="/assets/banner-thumbnail.png"
+        />
+        <RelevantMatters />
+      </div>
 
-        const errors = { email: "", password: "" };
-
-        if (!values.email) {
-          errors.email = "E-mail é obrigatório";
-        } else if (
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-        ) {
-          errors.email = "Verifique o e-mail digitado";
-        }
-
-        const errorEmail = errors.email && touched.email;
-        const errorPassowrd = errors.password && touched.password;
-
-        return (
-          <S.Wrapper>
-            <S.Container>
-              <Form>
-                <Image
-                  src="/assets/icons/logo.svg"
-                  alt="Juniando"
-                  width={252}
-                  height={200}
-                />
-                <h1>Faça seu login</h1>
-                <Input
-                  type="email"
-                  icon="/assets/icons/email.svg"
-                  placeholder="E-mail"
-                  name="email"
-                  id="email"
-                  onChange={handleChange}
-                  value={values.email}
-                  error={errorEmail && errors.email}
-                />
-                <Input
-                  icon="/assets/icons/password.svg"
-                  placeholder="Senha"
-                  name="password"
-                  type="password"
-                  onChange={handleChange}
-                  value={values.password}
-                  error={errorPassowrd && errors.password}
-                />
-                <Button title="Entrar" type="submit" />
-                <Link href="/">Esqueceu a senha?</Link>
-                <span>
-                  <Image
-                    src="/assets/icons/create.svg"
-                    alt="Criar"
-                    width={24}
-                    height={24}
-                  />
-                  <Link href="/register">Criar conta</Link>
-                </span>
-              </Form>
-            </S.Container>
-            <img src="/assets/login.png" alt="Login" />
-          </S.Wrapper>
-        );
-      }}
-    </Formik>
+      <S.MostViewed>
+        <h2>Mais visualizados</h2>
+        <S.ContainerCardPost>
+          {posts?.map((post) => {
+            return (
+              <CardPost
+                key={post._id}
+                title={post.title}
+                content={post.content}
+                author={post.author}
+                date={formatDatePost(new Date(post.createdAt))}
+                image={generateImageLink(post.image)}
+              />
+            );
+          })}
+        </S.ContainerCardPost>
+      </S.MostViewed>
+    </S.Container>
   );
 };
 
-export default Login;
+export default Home;

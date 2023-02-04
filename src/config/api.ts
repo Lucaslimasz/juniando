@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://api.jsonbin.io/v3/b",
+  baseURL: "https://juniando-backend-production.up.railway.app",
 });

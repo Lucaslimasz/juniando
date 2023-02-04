@@ -4,7 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 const RelevantMatters = () => {
-  const { posts } = usePosts();
+  const { posts, categories } = usePosts();
+
+  const currentCategories = categories.filter((_, index) => index < 4);
 
   return (
     <S.Wrapper>
@@ -12,8 +14,8 @@ const RelevantMatters = () => {
         <h2>Assuntos Relevantes</h2>
         <hr />
         <ul>
-          {posts.map((post) => (
-            <Link href={`/articles/${post.tag}`}>
+          {currentCategories.map((category) => (
+            <Link href={`/articles/${category.name}`}>
               <li>
                 <Image
                   src="/assets/icons/matters-icon.svg"
@@ -21,8 +23,15 @@ const RelevantMatters = () => {
                   width={7}
                   height={12}
                 />
-                <p>{post.tag}</p>
-                <b>({post.posts.length})</b>
+                <p>{category.name}</p>
+                <b>
+                  (
+                  {
+                    posts.filter((item) => item.category === category._id)
+                      .length
+                  }
+                  )
+                </b>
               </li>
             </Link>
           ))}

@@ -35,7 +35,7 @@ export const Container = styled.div`
   > hr {
     width: 6.5rem;
     margin: auto;
-    margin-top: 0.5rem;
+    margin: 0.5rem auto 0.75rem;
     height: 0.125rem;
     border-radius: 0.875rem;
     border-top: 0.125rem solid var(--blue-principal);
@@ -52,7 +52,7 @@ export const Container = styled.div`
       line-height: 1.25rem;
       color: var(--dark-100);
 
-      padding: 0.7rem 0;
+      padding: 8px 0 8px;
       width: 100%;
 
       cursor: pointer;

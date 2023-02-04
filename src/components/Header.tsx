@@ -10,12 +10,12 @@ import { usePosts } from "hooks/usePosts";
 
 const Header = () => {
   const router = useRouter();
-  const { posts } = usePosts();
+  const { categories } = usePosts();
 
   const routes = [
     {
       name: "Home",
-      route: "/home",
+      route: "/",
     },
     {
       name: "Artigos",
@@ -27,7 +27,7 @@ const Header = () => {
     },
     {
       name: "Sobre nós",
-      route: "/",
+      route: "/about",
     },
   ];
 
@@ -45,7 +45,7 @@ const Header = () => {
         {routes.map(({ name, route }) => {
           let routeName = "";
           if (route === "/articles") {
-            routeName = `/articles/${posts[0]?.tag}`;
+            routeName = `/articles/${categories[0]?.name}`;
           } else {
             routeName = route;
           }
@@ -69,7 +69,11 @@ const Header = () => {
             </Link>
           );
         })}
-        <Button title="Sign In" type="submit" />
+        <Button
+          title="Sign In"
+          type="submit"
+          onClick={() => router.push("/auth")}
+        />
       </S.Container>
     </S.Wrapper>
   );

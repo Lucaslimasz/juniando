@@ -1,5 +1,6 @@
 import { api } from "@config/api";
 import { IPosts } from "@interfaces/posts";
+import Cookie from "js-cookie";
 import {
   createContext,
   useContext,
@@ -10,34 +11,46 @@ import {
 
 interface IPostsProvider {
   children: ReactNode;
+  currentPosts: IPosts[];
+  currentTag: string;
 }
 
 interface PostsContextData {
   posts: IPosts[];
-  tag: string;
-  handleTag(title: string): void;
+  categories: ICategories[];
+}
+
+interface ICategories {
+  _id: string;
+  name: string;
 }
 
 const PostsContext = createContext({} as PostsContextData);
 
-export function PostsProvider({ children }: IPostsProvider) {
-  const [posts, setPosts] = useState<IPosts[]>([]);
-  const [tag, setTag] = useState<string>("");
-
-  const handleTag = (title: string) => {
-    setTag(title);
-  };
+export function PostsProvider({ children, currentPosts }: IPostsProvider) {
+  const [posts, setPosts] = useState<IPosts[]>(currentPosts);
+  const [categories, setCategories] = useState<ICategories[]>([]);
 
   useEffect(() => {
     (async () => {
-      const { data } = await api.get("/63d734ddace6f33a22cdac20");
-      setPosts(data.record.posts);
-      setTag(data.record.posts[0].tag);
+      const token = Cookie.get("token-user");
+      const responsePosts = await api.get("/posts", {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+      const responseCategories = await api.get("/categories", {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+      setPosts(responsePosts.data);
+      setCategories(responseCategories.data);
     })();
   }, []);
 
   return (
-    <PostsContext.Provider value={{ posts, tag, handleTag }}>
+    <PostsContext.Provider value={{ posts, categories }}>
       {children}
     </PostsContext.Provider>
   );

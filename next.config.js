@@ -5,6 +5,11 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  images: {
+    domains: ["juniando-backend-production.up.railway.app"],
+  },
 };
+
+module.exports = {};
 
 module.exports = nextConfig;

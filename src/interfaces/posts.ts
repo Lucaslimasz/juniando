@@ -8,7 +8,11 @@ export interface IPost {
 }
 
 export interface IPosts {
-  id: number;
-  tag: string;
-  posts: IPost[];
+  _id: string;
+  title: string;
+  content: string;
+  author: string;
+  createdAt: string;
+  image: string;
+  category: string;
 }

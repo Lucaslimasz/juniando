@@ -5,6 +5,7 @@ import { Formik, Form } from "formik";
 import Button from "@components/Button";
 import { Input } from "@components/Input";
 import * as S from "@styles/Pages/register";
+import { useAuth } from "hooks/useAuth";
 
 interface ISignInValues {
   email: string;
@@ -13,8 +14,10 @@ interface ISignInValues {
 }
 
 const Register = () => {
+  const { register } = useAuth();
+
   const submitForm = (values: ISignInValues) => {
-    console.log(values);
+    register(values);
   };
 
   return (
@@ -93,7 +96,7 @@ const Register = () => {
                     width={24}
                     height={24}
                   />
-                  <Link href="/">Voltar para o login</Link>
+                  <Link href="/auth">Voltar para o login</Link>
                 </span>
               </Form>
             </S.Container>
