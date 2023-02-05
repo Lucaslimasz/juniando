@@ -9,11 +9,10 @@ import {
   useState,
 } from "react";
 
-interface IPostsProvider {
-  children: ReactNode;
-  currentPosts: IPosts[];
-  currentTag: string;
-}
+// interface IPostsProvider {
+//   currentPosts: IPosts[];
+//   children: ReactNode;
+// }
 
 interface PostsContextData {
   posts: IPosts[];
@@ -27,7 +26,7 @@ interface ICategories {
 
 const PostsContext = createContext({} as PostsContextData);
 
-export function PostsProvider({ children, currentPosts }: IPostsProvider) {
+export function PostsProvider({ children, currentPosts }: any) {
   const [posts, setPosts] = useState<IPosts[]>(currentPosts);
   const [categories, setCategories] = useState<ICategories[]>([]);
 
