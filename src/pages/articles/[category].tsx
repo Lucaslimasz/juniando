@@ -64,7 +64,6 @@ const Articles = ({ currentCategory }: IArticlesProps) => {
         {posts
           ?.filter((item) => item.category === categorySelected?._id)
           .map((post) => {
-
             return (
               <CardPost
                 key={post._id}

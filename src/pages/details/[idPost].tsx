@@ -9,13 +9,12 @@ import { generateImageLink } from "@utils/generate-image-link";
 import { GetServerSideProps } from "next";
 import Image from "next/image";
 
-const Details = ({post}: any) => {
-
-  if(!post){
-    return <LoadingPage />
+const Details = ({ post }: any) => {
+  if (!post) {
+    return <LoadingPage />;
   }
-  
-  console.log(post)
+
+  console.log(post);
   return (
     <S.Container>
       <h1>{post.title}</h1>
@@ -36,15 +35,15 @@ const Details = ({post}: any) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const id = ctx.params?.idPost
+  const id = ctx.params?.idPost;
 
-  const {data}  = await api.get(`/posts/content/${id}`)
+  const { data } = await api.get(`/posts/content/${id}`);
 
   return {
     props: {
-      post: data
-    }
-  }
-}
+      post: data,
+    },
+  };
+};
 
 export default Details;
