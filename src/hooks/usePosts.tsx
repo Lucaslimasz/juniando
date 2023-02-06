@@ -1,11 +1,6 @@
 import { api } from "@config/api";
 import { IPosts } from "@interfaces/posts";
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 interface PostsContextData {
   posts: IPosts[];

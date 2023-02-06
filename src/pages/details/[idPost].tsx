@@ -8,8 +8,7 @@ import { formatDatePost } from "@utils/format-date-post";
 import { GetServerSideProps } from "next";
 import Image from "next/image";
 
-
-const Details = ({ post }: {post: IPosts}) => {
+const Details = ({ post }: { post: IPosts }) => {
   if (!post) {
     return <LoadingPage />;
   }
