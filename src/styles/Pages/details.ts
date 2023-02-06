@@ -7,6 +7,7 @@ export const Container = styled.div`
   padding-top: 7rem;
 
   margin-top: 2rem;
+  background-color: var(--white);
 `;
 
 export const Top = styled.div`
@@ -19,19 +20,19 @@ export const Top = styled.div`
   }
 
   @media (max-width: 560px) {
-    width: 116%;
+    width: 103.5vw;
     left: 0;
     position: relative;
     left: -10%;
-    top: -23px;
+
+    > span {
+      border-radius: 0 0 1rem 0;
+    }
   }
 
-  @media (max-width: 360px) {
-    width: 120%;
-    left: 0;
-    position: relative;
-    left: -10%;
-    top: -23px;
+  @media (max-width: 560px) {
+    /* width: 117%; */
+    /* width: 104vw; */
   }
 `;
 
@@ -64,4 +65,8 @@ export const Body = styled.div`
   line-height: 1.5rem;
   margin-top: 2.125rem;
   /* max-width: 43.75rem; */
+
+  > div {
+    word-break: break-word;
+  }
 `;

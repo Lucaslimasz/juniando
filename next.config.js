@@ -6,7 +6,7 @@ const nextConfig = {
     styledComponents: true,
   },
   images: {
-    domains: ["juniando-backend-production.up.railway.app"],
+    domains: ["juniando-backend-production.up.railway.app", "localhost"],
   },
 };
 

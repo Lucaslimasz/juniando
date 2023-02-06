@@ -1,6 +1,5 @@
 import { api } from "@config/api";
 import { IPosts } from "@interfaces/posts";
-import Cookie from "js-cookie";
 import {
   createContext,
   useContext,
@@ -32,17 +31,8 @@ export function PostsProvider({ children, currentPosts }: any) {
 
   useEffect(() => {
     (async () => {
-      const token = Cookie.get("token-user");
-      const responsePosts = await api.get("/posts", {
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-      });
-      const responseCategories = await api.get("/categories", {
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-      });
+      const responsePosts = await api.get("/posts");
+      const responseCategories = await api.get("/categories");
       setPosts(responsePosts.data);
       setCategories(responseCategories.data);
     })();

@@ -1,5 +1,3 @@
-// import { useRouter } from "next/router";
-
 import CardPost from "@components/CardPost";
 import Tags from "@components/Tags";
 
@@ -66,15 +64,15 @@ const Articles = ({ currentCategory }: IArticlesProps) => {
         {posts
           ?.filter((item) => item.category === categorySelected?._id)
           .map((post) => {
-            const date = new Date(post.createdAt);
 
             return (
               <CardPost
                 key={post._id}
+                id={post._id}
                 title={post.title}
                 content={post.content}
                 author={post.author}
-                date={formatDatePost(date)}
+                date={formatDatePost(post.createdAt)}
                 image={generateImageLink(post.image)}
               />
             );

@@ -35,10 +35,11 @@ const Home = () => {
             return (
               <CardPost
                 key={post._id}
+                id={post._id}
                 title={post.title}
                 content={post.content}
                 author={post.author}
-                date={formatDatePost(new Date(post.createdAt))}
+                date={formatDatePost(post.createdAt)}
                 image={generateImageLink(post.image)}
               />
             );
