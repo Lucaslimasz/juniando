@@ -10,21 +10,15 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     gap: 2rem;
+  }
 
-    @media (max-width: 560px) {
-      width: 116%;
-      left: 0;
-      position: relative;
-      left: -10%;
-      top: -23px;
-    }
+  @media (max-width: 600px) {
+    > div {
+      width: 100vw;
 
-    @media (max-width: 360px) {
-      width: 120%;
-      left: 0;
       position: relative;
-      left: -10%;
-      top: -23px;
+      left: -2rem;
+      top: -1.5rem;
     }
   }
 `;
@@ -73,7 +67,7 @@ export const ContainerCardPost = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     > div {
-      max-width: 100%;
+      width: 100%;
       > span {
         max-width: 100%;
         width: 100% !important;
@@ -86,6 +80,6 @@ export const ContainerCardPost = styled.div`
   }
 
   @media (max-width: 500px) {
-    grid-template-columns: repeat(1, 1fr);
+    display: block;
   }
 `;

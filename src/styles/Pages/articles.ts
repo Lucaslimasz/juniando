@@ -25,7 +25,7 @@ export const Posts = styled.div`
   }
 
   @media (max-width: 500px) {
-    grid-template-columns: repeat(1, 1fr);
+    display: block;
   }
 `;
 
@@ -33,4 +33,5 @@ export const Tags = styled.div`
   display: flex;
   gap: 1rem;
   padding-top: 120px;
+  overflow-x: auto;
 `;

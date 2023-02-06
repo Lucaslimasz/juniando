@@ -5,10 +5,9 @@ interface IStyleThumbnail {
 }
 
 export const Container = styled.div<IStyleThumbnail>`
-  font-family: montserrat, Roboto, Ubuntu, sans-serif;
-  width: 46.625rem;
+  width: 100%;
   height: 25.75rem;
-  background-image: ${(props) => `url(${props.bg})`};
+  background-image: ${({ bg }) => `url(${bg})`};
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -32,8 +31,8 @@ export const Container = styled.div<IStyleThumbnail>`
     bottom: 0;
   }
 
-  @media (max-width: 1000px) {
-    width: 100%;
+  @media (max-width: 700px) {
+    width: 105% !important;
   }
 `;
 

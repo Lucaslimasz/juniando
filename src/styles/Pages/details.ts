@@ -29,11 +29,6 @@ export const Top = styled.div`
       border-radius: 0 0 1rem 0;
     }
   }
-
-  @media (max-width: 560px) {
-    /* width: 117%; */
-    /* width: 104vw; */
-  }
 `;
 
 export const DivInfo = styled.div`
