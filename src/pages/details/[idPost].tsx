@@ -5,7 +5,6 @@ import { IPosts } from "@interfaces/posts";
 
 import * as S from "@styles/Pages/details";
 import { formatDatePost } from "@utils/format-date-post";
-import { generateImageLink } from "@utils/generate-image-link";
 import { GetServerSideProps } from "next";
 import Image from "next/image";
 
@@ -24,7 +23,7 @@ const Details = ({ post }: any) => {
         <S.Text>{formatDatePost(post.createdAt)}</S.Text>
       </S.DivInfo>
       <S.Top>
-        <Image src={generateImageLink(post.image)} width={700} height={400} />
+        <Image src={post.image} width={700} height={400} />
         <RelevantMatters />
       </S.Top>
       <S.Body>

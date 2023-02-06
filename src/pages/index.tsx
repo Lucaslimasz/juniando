@@ -4,7 +4,6 @@ import Thumbnail from "@components/Thumbnail";
 
 import * as S from "@styles/Pages/home";
 import { formatDatePost } from "@utils/format-date-post";
-import { generateImageLink } from "@utils/generate-image-link";
 import { usePosts } from "hooks/usePosts";
 import LoadingPage from "@components/LoadingPage";
 
@@ -14,6 +13,8 @@ const Home = () => {
   if (!posts) {
     return <LoadingPage />;
   }
+
+  console.log(posts)
 
   return (
     <S.Container>
@@ -40,7 +41,7 @@ const Home = () => {
                 content={post.content}
                 author={post.author}
                 date={formatDatePost(post.createdAt)}
-                image={generateImageLink(post.image)}
+                image={post.image}
               />
             );
           })}

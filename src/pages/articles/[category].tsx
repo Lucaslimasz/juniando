@@ -5,7 +5,6 @@ import * as S from "@styles/Pages/articles";
 
 import { usePosts } from "hooks/usePosts";
 import { useEffect, useState } from "react";
-import { generateImageLink } from "@utils/generate-image-link";
 import { GetServerSideProps } from "next";
 import { formatDatePost } from "@utils/format-date-post";
 import LoadingPage from "@components/LoadingPage";
@@ -72,7 +71,7 @@ const Articles = ({ currentCategory }: IArticlesProps) => {
                 content={post.content}
                 author={post.author}
                 date={formatDatePost(post.createdAt)}
-                image={generateImageLink(post.image)}
+                image={post.image}
               />
             );
           })}
