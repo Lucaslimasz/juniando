@@ -8,6 +8,7 @@ export const Container = styled.div`
 
   margin-top: 2rem;
   background-color: var(--white);
+  overflow-x: hidden;
 `;
 
 export const Top = styled.div`
