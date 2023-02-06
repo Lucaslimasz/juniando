@@ -1,7 +1,6 @@
 import LoadingPage from "@components/LoadingPage";
 import RelevantMatters from "@components/RelevantMatters";
 import { api } from "@config/api";
-import { IPosts } from "@interfaces/posts";
 
 import * as S from "@styles/Pages/details";
 import { formatDatePost } from "@utils/format-date-post";
@@ -12,8 +11,6 @@ const Details = ({ post }: any) => {
   if (!post) {
     return <LoadingPage />;
   }
-
-  console.log(post);
   return (
     <S.Container>
       <h1>{post.title}</h1>
