@@ -83,10 +83,9 @@ export const ContainerCardPost = styled.div`
     display: block;
   }
 
-  @media (max-width: 450px){
+  @media (max-width: 450px) {
     > div {
       max-width: 100%;
-
     }
   }
 `;
