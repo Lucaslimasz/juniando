@@ -14,8 +14,6 @@ const Home = () => {
     return <LoadingPage />;
   }
 
-  console.log(posts);
-
   return (
     <S.Container>
       <div>
