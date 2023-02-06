@@ -34,7 +34,7 @@ const Header = () => {
   return (
     <S.Wrapper>
       <S.Container>
-        <Link href="/home">
+        <Link href="/">
           <Image
             src="/assets/icons/logo-header.svg"
             alt="Juniando"

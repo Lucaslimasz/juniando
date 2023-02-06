@@ -7,16 +7,16 @@ interface IAuthProvider {
   children: ReactNode;
 }
 
+interface IUser {
+  email: string;
+  _id: string;
+}
+
 interface AuthContextData {
   isLogged: boolean;
   register(infoUser: IUserRegister): void;
   authenticate(infoUser: IUserRegister): void;
-  user: any;
-}
-
-interface IUser {
-  email: string;
-  _id: string;
+  user: IUser;
 }
 
 interface IUserRegister {

@@ -1,13 +1,15 @@
 import LoadingPage from "@components/LoadingPage";
 import RelevantMatters from "@components/RelevantMatters";
 import { api } from "@config/api";
+import { IPosts } from "@interfaces/posts";
 
 import * as S from "@styles/Pages/details";
 import { formatDatePost } from "@utils/format-date-post";
 import { GetServerSideProps } from "next";
 import Image from "next/image";
 
-const Details = ({ post }: any) => {
+
+const Details = ({ post }: {post: IPosts}) => {
   if (!post) {
     return <LoadingPage />;
   }

@@ -3,15 +3,9 @@ import { IPosts } from "@interfaces/posts";
 import {
   createContext,
   useContext,
-  ReactNode,
   useEffect,
   useState,
 } from "react";
-
-// interface IPostsProvider {
-//   currentPosts: IPosts[];
-//   children: ReactNode;
-// }
 
 interface PostsContextData {
   posts: IPosts[];
@@ -25,8 +19,8 @@ interface ICategories {
 
 const PostsContext = createContext({} as PostsContextData);
 
-export function PostsProvider({ children, currentPosts }: any) {
-  const [posts, setPosts] = useState<IPosts[]>(currentPosts);
+export function PostsProvider({ children }: any) {
+  const [posts, setPosts] = useState<IPosts[]>([]);
   const [categories, setCategories] = useState<ICategories[]>([]);
 
   useEffect(() => {
