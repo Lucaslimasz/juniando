@@ -68,6 +68,7 @@ export const ContainerCardPost = styled.div`
     grid-template-columns: repeat(3, 1fr);
     > div {
       width: 100%;
+      max-width: 100%;
       > span {
         max-width: 100%;
         width: 100% !important;
@@ -80,7 +81,7 @@ export const ContainerCardPost = styled.div`
   }
 
   @media (max-width: 500px) {
-    display: block;
+    display: flex;
   }
 
   @media (max-width: 450px) {

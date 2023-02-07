@@ -17,24 +17,36 @@ export const Container = styled.div`
     margin-top: -0.625rem;
     border-radius: 0rem 0rem 0.875rem 0.875rem;
     background-color: var(--white);
-  }
+    > div {
+      display: flex;
+      align-items: center;
 
-  > .InfosContainer div {
-    display: flex;
-    align-items: center;
+      p {
+        font-size: 0.875rem;
+        font-weight: 600;
+      }
 
-    p {
-      font-size: 0.875rem;
-      font-weight: 600;
+      > span {
+        width: 0.375rem;
+        height: 0.375rem;
+        border-radius: 0.187rem;
+        margin: 0rem 0.875rem;
+        background-color: var(--blue-principal);
+      }
+
+      @media (max-width: 380px) {
+        span {
+          display: none;
+        }
+
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        p:first-child {
+          color: var(--blue-principal);
+        }
+      }
     }
-  }
-
-  > .InfosContainer div span {
-    width: 0.375rem;
-    height: 0.375rem;
-    border-radius: 0.187rem;
-    margin: 0rem 0.875rem;
-    background-color: var(--blue-principal);
   }
 
   h1 {

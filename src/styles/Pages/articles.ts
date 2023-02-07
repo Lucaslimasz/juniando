@@ -25,7 +25,8 @@ export const Posts = styled.div`
   }
 
   @media (max-width: 500px) {
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
   }
 `;
 
@@ -34,4 +35,16 @@ export const Tags = styled.div`
   gap: 1rem;
   padding: 120px 0 5px;
   overflow-x: auto;
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0); 
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0); 
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0,0); 
+  }
 `;
