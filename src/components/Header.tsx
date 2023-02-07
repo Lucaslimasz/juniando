@@ -7,10 +7,12 @@ import Button from "@components/Button";
 import * as S from "@styles/Components/Header";
 
 import { usePosts } from "hooks/usePosts";
+import { useState } from "react";
 
 const Header = () => {
   const router = useRouter();
   const { categories } = usePosts();
+  const [isActiveMenu, setIsActiveMenu] = useState<boolean>(false);
 
   const routes = [
     {
@@ -30,6 +32,10 @@ const Header = () => {
       route: "/about",
     },
   ];
+
+  const handleActiveMenu = () => {
+    setIsActiveMenu((prevState) => !prevState);
+  };
 
   return (
     <S.Wrapper>
@@ -73,8 +79,40 @@ const Header = () => {
           title="Sign In"
           type="submit"
           onClick={() => router.push("/auth")}
+          className="signin"
         />
+        <button className="menu-hamburguer" onClick={handleActiveMenu}>
+          {isActiveMenu ? (
+            <img src="/assets/icons/close-menu.svg" alt="menu-hamburguer" />
+          ) : (
+            <img
+              src="/assets/icons/menu-hamburguer.svg"
+              alt="menu-hamburguer"
+            />
+          )}
+        </button>
       </S.Container>
+
+      {isActiveMenu && (
+        <S.ContainerMenu>
+          {routes.map(({ name, route }) => {
+            let routeName = "";
+            if (route === "/articles") {
+              routeName = `/articles/${categories[0]?.name}`;
+            } else {
+              routeName = route;
+            }
+            return (
+              <Link key={name} href={routeName}>
+                <a onClick={() => setIsActiveMenu(false)}>{name}</a>
+              </Link>
+            );
+          })}
+          <Link href="/auth">
+            <a style={{ color: "#0565FF", fontWeight: "800" }}>SignIn</a>
+          </Link>
+        </S.ContainerMenu>
+      )}
     </S.Wrapper>
   );
 };

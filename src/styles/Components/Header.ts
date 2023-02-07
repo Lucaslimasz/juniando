@@ -67,7 +67,7 @@ export const Container = styled.div`
     }
   }
 
-  button {
+  .signin {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,9 +82,23 @@ export const Container = styled.div`
     font-size: 1rem;
   }
 
+  .menu-hamburguer {
+    display: none;
+  }
+
   @media (max-width: 630px) {
-    > a {
+    > a,
+    .signin {
       display: none;
+    }
+
+    .menu-hamburguer {
+      display: initial;
+      background-color: transparent;
+      z-index: 1000;
+      > img {
+        width: 35px;
+      }
     }
   }
 
@@ -92,6 +106,31 @@ export const Container = styled.div`
     // logo
     > span {
       width: 10rem !important;
+    }
+  }
+`;
+
+export const ContainerMenu = styled.div`
+  display: none;
+  @media (max-width: 630px) {
+    background: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 0;
+
+    a {
+      padding-bottom: 20px;
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--white);
     }
   }
 `;
