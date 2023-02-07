@@ -24,7 +24,6 @@ export function PostsProvider({ children }: any) {
       const responseCategories = await api.get("/categories");
       setPosts(responsePosts.data);
       setCategories(responseCategories.data);
-      console.log(responsePosts.data)
     })();
   }, []);
 
