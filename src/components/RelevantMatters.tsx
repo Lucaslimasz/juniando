@@ -8,6 +8,8 @@ const RelevantMatters = () => {
 
   const currentCategories = categories.filter((_, index) => index < 4);
 
+  console.log(posts)
+
   return (
     <S.Wrapper>
       <S.Container>

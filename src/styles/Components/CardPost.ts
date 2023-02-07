@@ -49,7 +49,7 @@ export const Container = styled.div`
     -webkit-box-orient: vertical;
   }
 
-  p {
+  .content {
     font-size: 0.75rem;
     line-height: 1.1rem;
 
@@ -58,5 +58,13 @@ export const Container = styled.div`
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
+
+    h1, h2, h3 {
+      display: none;
+    }
+
+    a {
+      pointer-events: none;
+    }
   }
 `;
