@@ -35,9 +35,9 @@ export default function CardPost({
         <p
           className="content"
           dangerouslySetInnerHTML={{
-            __html: content.replaceAll("&nbsp;", " "),
+            __html: `${content.replaceAll("&nbsp;", " ").substring(0, 300)}...`,
           }}
-        ></p>
+        />
       </div>
     </S.Container>
   );
