@@ -74,7 +74,8 @@ export const Container = styled.div`
     h1,
     h2,
     h3 {
-      display: none;
+      font-size: 0.75rem;
+      font-weight: 400;
     }
 
     a {
