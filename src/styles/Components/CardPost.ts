@@ -59,7 +59,9 @@ export const Container = styled.div`
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
 
-    h1, h2, h3 {
+    h1,
+    h2,
+    h3 {
       display: none;
     }
 
