@@ -16,7 +16,7 @@ interface IJob {
   image: string;
   registrationLink: string;
   title: string;
-  salary: Number;
+  salary: number;
 }
 
 interface ICategory {

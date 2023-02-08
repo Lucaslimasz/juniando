@@ -78,8 +78,8 @@ export const Top = styled.div`
 `;
 
 export const Mid = styled.div`
-  margin: 10px 0 ;
-  
+  margin: 10px 0;
+
   b {
     font-size: 1.125rem;
   }
@@ -88,7 +88,12 @@ export const Mid = styled.div`
     margin: 10px 0;
     h1,
     h2,
-    h3, span, div, p, b, strong {
+    h3,
+    span,
+    div,
+    p,
+    b,
+    strong {
       font-size: 12px;
       font-weight: 400;
     }
