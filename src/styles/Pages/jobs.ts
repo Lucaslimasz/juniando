@@ -65,7 +65,7 @@ export const Job = styled.div`
   border-radius: 0.625rem;
   padding: 1.875rem;
   background-color: var(--white);
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0.625rem rgba(0, 0, 0, 0.1);
 `;
 
 export const Top = styled.div`
@@ -78,9 +78,20 @@ export const Top = styled.div`
 `;
 
 export const Mid = styled.div`
-  margin-top: 1.5rem;
-  p {
-    margin: 14px 0 1.125rem;
+  margin: 10px 0 ;
+  
+  b {
+    font-size: 1.125rem;
+  }
+
+  div {
+    margin: 10px 0;
+    h1,
+    h2,
+    h3, span, div, p, b, strong {
+      font-size: 12px;
+      font-weight: 400;
+    }
   }
 `;
 

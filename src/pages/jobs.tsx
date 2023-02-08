@@ -1,46 +1,55 @@
+import LoadingPage from "@components/LoadingPage";
 import Tags from "@components/Tags";
 import { api } from "@config/api";
 import * as S from "@styles/Pages/jobs";
+import { GetServerSideProps } from "next";
 import Image from "next/image";
 
 import { useEffect, useState } from "react";
 
 interface IJob {
-  id: string;
-  company: {
-    id: string;
-    name: string;
-    photo: string;
-  };
+  _id: string;
+  categoryJob: string;
+  company: string;
+  content: string;
+  createdAt: string;
+  image: string;
+  registrationLink: string;
   title: string;
-  description: string;
-  link: string;
-  salary: number;
-  workingModel: string;
+  salary: Number;
+}
+
+interface ICategory {
+  _id: string;
+  name: string;
 }
 
 interface IJobs {
-  id: string;
-  segmentArea: string;
   jobs: IJob[];
+  categories: ICategory[];
 }
 
-const Jobs = () => {
-  const [segmentArea, setSegmentArea] = useState<string>("Back-End");
-  const [jobs, setJobs] = useState<IJobs[]>([]);
+const Jobs = ({ jobs, categories }: IJobs) => {
+  const [currentCategory, setCurrentCategory] = useState<ICategory>(
+    {} as ICategory
+  );
+  const [jobsView, setJobsView] = useState<IJob[]>();
 
   const handleSegmentArea = (area: string) => {
-    setSegmentArea(area);
+    const category = categories.filter((cat) => cat.name === area)[0];
+    setCurrentCategory(category);
   };
 
-  const tags = jobs.map((item) => item.segmentArea);
-
   useEffect(() => {
-    (async () => {
-      const { data } = await api.get("/63da5e2eebd26539d07291e5");
-      setJobs(data.record);
-    })();
-  }, []);
+    const response = jobs.filter(
+      (item) => item.categoryJob === currentCategory._id
+    );
+    setJobsView(response);
+  }, [currentCategory]);
+
+  if (!jobs || !categories) {
+    return <LoadingPage />;
+  }
 
   return (
     <S.Container>
@@ -52,54 +61,71 @@ const Jobs = () => {
       </S.Header>
       <S.Body>
         <S.ContainerTags>
-          {tags.map((title) => (
+          {categories.map(({ _id, name }) => (
             <Tags
-              key={title}
-              title={title}
-              active={title === segmentArea}
-              onClick={() => handleSegmentArea(title)}
+              key={_id}
+              title={name}
+              active={name === currentCategory.name}
+              onClick={() => handleSegmentArea(name)}
             />
           ))}
         </S.ContainerTags>
         <h1>Vagas Disponíveis</h1>
         <S.ContainerJobs>
-          {jobs
-            .filter((companies) => companies.segmentArea === segmentArea)
-            .map((item) =>
-              item.jobs.map((job) => (
-                <S.Job>
-                  <S.Top>
-                    <Image
-                      src={
-                        job.company.photo.length === 0
-                          ? "/assets/perfil-company-null.png"
-                          : job.company.photo
-                      }
-                      width={45}
-                      height={45}
-                    />
-                    <b>{job.company.name}</b>
-                  </S.Top>
-                  <S.Mid>
-                    <b>{job.title}</b>
-                    <p>João Pessoa - PB, a 12,6 Km de você.</p>
-                  </S.Mid>
-                  <S.Bot>
-                    <b>
-                      {job.salary.toLocaleString("pt-br", {
-                        style: "currency",
-                        currency: "BRL",
-                      })}
-                    </b>
-                    <button>Cadastre-se</button>
-                  </S.Bot>
-                </S.Job>
-              ))
-            )}
+          {jobsView?.map((job) => {
+            console.log(job);
+            return (
+              <S.Job key={job._id}>
+                <S.Top>
+                  <Image
+                    src={"/assets/perfil-company-null.png"}
+                    width={45}
+                    height={45}
+                  />
+                  <b>{job.company}</b>
+                </S.Top>
+                <S.Mid>
+                  <b>{job.title}</b>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: `${job.content
+                        .replace("&nbsp;", " ")
+                        .substring(0, 200)}...`,
+                    }}
+                  />
+                </S.Mid>
+                <S.Bot>
+                  <b>
+                    {job.salary.toLocaleString("pt-br", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}
+                  </b>
+                  <button>
+                    <a href={job.registrationLink} target="_blank">
+                      Cadastre-se
+                    </a>
+                  </button>
+                </S.Bot>
+              </S.Job>
+            );
+          })}
         </S.ContainerJobs>
       </S.Body>
     </S.Container>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const response: { data: IJob[] } = await api.get("/jobs");
+  const categoriesJobs: { data: IJob[] } = await api.get("/categoriesJobs");
+
+  return {
+    props: {
+      jobs: response.data,
+      categories: categoriesJobs.data,
+    },
+  };
 };
 
 export default Jobs;
