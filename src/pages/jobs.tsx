@@ -31,7 +31,7 @@ interface IJobs {
 
 const Jobs = ({ jobs, categories }: IJobs) => {
   const [currentCategory, setCurrentCategory] = useState<ICategory>(
-    categories[0] || {} as ICategory
+    categories[0] || ({} as ICategory)
   );
   const [jobsView, setJobsView] = useState<IJob[]>();
 
