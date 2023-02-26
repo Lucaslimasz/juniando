@@ -7,10 +7,13 @@ import Button from "@components/Button";
 import * as S from "@styles/Components/Header";
 
 import { usePosts } from "hooks/usePosts";
-import { useState } from "react";
+import { useAuth } from "hooks/useAuth";
+import { useEffect, useState } from "react";
+import { GetServerSideProps } from "next";
 
 const Header = () => {
   const router = useRouter();
+  const { isLogged, logout, user } = useAuth();
   const { categories } = usePosts();
   const [isActiveMenu, setIsActiveMenu] = useState<boolean>(false);
 
@@ -31,6 +34,10 @@ const Header = () => {
       name: "Sobre nós",
       route: "/about",
     },
+    {
+      name: "Publicador",
+      route: "/dashboard",
+    },
   ];
 
   const handleActiveMenu = () => {
@@ -50,6 +57,11 @@ const Header = () => {
         </Link>
         {routes.map(({ name, route }) => {
           let routeName = "";
+          if (route === "/dashboard") {
+            if (!isLogged) {
+              return;
+            }
+          }
           if (route === "/articles") {
             routeName = `/articles/${categories[0]?.name}`;
           } else {
@@ -75,12 +87,28 @@ const Header = () => {
             </Link>
           );
         })}
-        <Button
-          title="Sign In"
-          type="submit"
-          onClick={() => router.push("/auth")}
-          className="signin"
-        />
+        {isLogged ? (
+          <div className="logout">
+            <button onClick={logout}>
+              <b>Logout</b>
+            </button>
+            <img
+              src={
+                user.avatar?.length > 0 ? user.avatar : "/assets/perfil.jpeg"
+              }
+              alt="avatar"
+              width={40}
+              height={40}
+            />
+          </div>
+        ) : (
+          <Button
+            title="Sign In"
+            type="submit"
+            onClick={() => router.push("/auth")}
+            className="signin"
+          />
+        )}
         <button className="menu-hamburguer" onClick={handleActiveMenu}>
           {isActiveMenu ? (
             <img src="/assets/icons/close-menu.svg" alt="menu-hamburguer" />
@@ -97,6 +125,11 @@ const Header = () => {
         <S.ContainerMenu>
           {routes.map(({ name, route }) => {
             let routeName = "";
+            if (route === "/dashboard") {
+              if (!isLogged) {
+                return;
+              }
+            }
             if (route === "/articles") {
               routeName = `/articles/${categories[0]?.name}`;
             } else {
@@ -109,7 +142,9 @@ const Header = () => {
             );
           })}
           <Link href="/auth">
-            <a style={{ color: "#0565FF", fontWeight: "800" }}>SignIn</a>
+            <a style={{ color: "#0565FF", fontWeight: "800" }}>
+              {isLogged ? "Logout" : "SignIn"}
+            </a>
           </Link>
         </S.ContainerMenu>
       )}

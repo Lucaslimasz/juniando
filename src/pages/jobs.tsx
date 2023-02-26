@@ -73,7 +73,6 @@ const Jobs = ({ jobs, categories }: IJobs) => {
         <h1>Vagas Disponíveis</h1>
         <S.ContainerJobs>
           {jobsView?.map((job) => {
-            console.log(job);
             return (
               <S.Job key={job._id}>
                 <S.Top>

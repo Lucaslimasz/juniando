@@ -4,6 +4,7 @@ export default createGlobalStyle`
   :root {
     --white: #FFFFFF;
     --yellow: #FBC139;
+    --red: #8B0000;
 
     --blue-principal: #0565FF;
     --blue-mid: #004AC0;
@@ -31,17 +32,18 @@ export default createGlobalStyle`
   body, input, textarea, button{
     font: 400 1rem 'Montserrat', sans-serif;
   }
-  
+
   button{
     cursor: pointer;
 
     transition: filter .2s ease;
+    background: none;
 
     &:hover:not(:disabled) {
       filter: brightness(0.9);
     }
   }
-  
+
   button, input, textarea {
     border: none;
     outline: 0;

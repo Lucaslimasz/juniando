@@ -75,20 +75,51 @@ export const Container = styled.div`
     width: 7rem;
     height: 2.75rem;
     border-radius: 1.5rem;
-    color: white;
     background: var(--blue-principal);
     font-family: Montserrat;
+    color: white;
     font-weight: 700;
     font-size: 1rem;
+  }
+
+  .logout {
+    display: flex;
+    align-items: center;
+
+    button {
+      background-color: var(--red);
+      padding: 0.5rem 1.4rem;
+      border-radius: 1.5rem 0 0 1.5rem;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      position: relative;
+      right: -0.8rem;
+    }
+
+    > img {
+      border-radius: 3rem;
+      z-index: 1;
+      border: 4px solid #fff;
+    }
   }
 
   .menu-hamburguer {
     display: none;
   }
 
-  @media (max-width: 630px) {
+  @media (max-width: 750px) {
     > a,
     .signin {
+      display: none;
+    }
+
+    .logout {
       display: none;
     }
 
@@ -112,7 +143,7 @@ export const Container = styled.div`
 
 export const ContainerMenu = styled.div`
   display: none;
-  @media (max-width: 630px) {
+  @media (max-width: 750px) {
     background: rgba(0, 0, 0, 0.8);
     position: absolute;
     top: 0;

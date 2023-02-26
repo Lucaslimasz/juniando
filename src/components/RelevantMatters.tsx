@@ -15,7 +15,7 @@ const RelevantMatters = () => {
         <hr />
         <ul>
           {currentCategories.map((category) => (
-            <Link href={`/articles/${category.name}`}>
+            <Link key={category._id} href={`/articles/${category.name}`}>
               <li>
                 <Image
                   src="/assets/icons/matters-icon.svg"
