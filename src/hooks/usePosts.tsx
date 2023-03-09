@@ -1,6 +1,12 @@
 import { api } from "@config/api";
 import { IPosts } from "@interfaces/posts";
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 interface PostsContextData {
   posts: IPosts[];
@@ -14,7 +20,7 @@ interface ICategories {
 
 const PostsContext = createContext({} as PostsContextData);
 
-export function PostsProvider({ children }: any) {
+export function PostsProvider({ children }: PropsWithChildren) {
   const [posts, setPosts] = useState<IPosts[]>([]);
   const [categories, setCategories] = useState<ICategories[]>([]);
 

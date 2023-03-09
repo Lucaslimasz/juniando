@@ -8,8 +8,7 @@ import * as S from "@styles/Components/Header";
 
 import { usePosts } from "hooks/usePosts";
 import { useAuth } from "hooks/useAuth";
-import { useEffect, useState } from "react";
-import { GetServerSideProps } from "next";
+import { useState } from "react";
 
 const Header = () => {
   const router = useRouter();
@@ -92,14 +91,21 @@ const Header = () => {
             <button onClick={logout}>
               <b>Logout</b>
             </button>
-            <img
-              src={
-                user.avatar?.length > 0 ? user.avatar : "/assets/perfil.jpeg"
-              }
-              alt="avatar"
-              width={40}
-              height={40}
-            />
+            <div>
+              <img
+                src={
+                  user.avatar?.length > 0 ? user.avatar : "/assets/perfil.jpeg"
+                }
+                alt="avatar"
+                width={40}
+                height={40}
+              />
+              <Link href="/me">
+                <div>
+                  <img src="/assets/icons/edit.svg" alt="editar" />
+                </div>
+              </Link>
+            </div>
           </div>
         ) : (
           <Button

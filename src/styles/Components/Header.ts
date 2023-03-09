@@ -102,10 +102,43 @@ export const Container = styled.div`
       right: -0.8rem;
     }
 
-    > img {
-      border-radius: 3rem;
-      z-index: 1;
-      border: 4px solid #fff;
+    position: relative;
+
+    > div {
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        > div {
+          display: inherit;
+        }
+      }
+
+      > img {
+        border-radius: 3rem;
+        z-index: 1;
+        border: 4px solid #fff;
+        cursor: pointer;
+      }
+
+      > div {
+        cursor: pointer;
+        background: rgba(0, 0, 0, 0.6);
+        width: 2rem;
+        height: 2rem;
+        border-radius: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 0.25rem;
+        z-index: 1;
+        display: none;
+
+        > img {
+          width: 1rem;
+        }
+      }
     }
   }
 
