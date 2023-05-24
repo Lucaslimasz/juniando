@@ -10,6 +10,7 @@ export default createGlobalStyle`
     --blue-mid: #004AC0;
     --blue-dark: #003384;
 
+    --dark: #000;
     --dark-100: #202020;
     --dark-80: #312E38;
     --dark-60: #808080;
