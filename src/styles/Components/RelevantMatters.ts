@@ -11,8 +11,7 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   width: 18.125rem;
-  height: 14.875rem;
-  display: grid;
+  max-height: 14.875rem;
   align-items: center;
   justify-content: center;
   background: var(--white);

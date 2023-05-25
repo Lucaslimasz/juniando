@@ -19,9 +19,10 @@ export const Container = styled.div<ContainerProps>`
   border-radius: 0.75rem;
 
   border: ${({ error }) => error && "1px solid rgba(255, 255, 0, .8)"};
+  color: var(--white);
 
   ${({ color }) =>
-    color &&
+    color === "light" &&
     css`
       background: var(--dark-50);
     `}
@@ -34,13 +35,13 @@ export const Input = styled.input<{ color?: "light" }>`
   font-family: Montserrat;
   color: var(--white);
   ${({ color }) =>
-    color &&
+    color === "light" &&
     css`
       color: var(--dark-100);
+      &::placeholder {
+        color: var(--dark-100);
+      }
     `}
-  &::placeholder {
-    color: var(--dark-100);
-  }
 `;
 
 export const Error = styled.p`

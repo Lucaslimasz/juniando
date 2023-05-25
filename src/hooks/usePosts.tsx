@@ -26,8 +26,10 @@ export function PostsProvider({ children }: PropsWithChildren) {
 
   useEffect(() => {
     (async () => {
-      const responsePosts = await api.get("/posts");
-      const responseCategories = await api.get("/categories");
+      const [responsePosts, responseCategories] = await Promise.all([
+        api.get("/posts"),
+        api.get("/categories"),
+      ]);
       setPosts(responsePosts.data);
       setCategories(responseCategories.data);
     })();

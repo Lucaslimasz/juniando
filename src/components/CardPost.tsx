@@ -22,8 +22,6 @@ export default function CardPost({
 }: IPropsCardPost) {
   const router = useRouter();
 
-  const width = window.innerWidth;
-
   return (
     <S.Container onClick={() => router.push(`/details/${id}`)}>
       <Image src={image} width={360} height={227} />
@@ -37,9 +35,7 @@ export default function CardPost({
         <p
           className="content"
           dangerouslySetInnerHTML={{
-            __html: `${content
-              .replaceAll("&nbsp;", " ")
-              .substring(0, width < 630 ? 400 : 300)}...`,
+            __html: `${content.replaceAll("&nbsp;", " ")}`,
           }}
         />
       </div>

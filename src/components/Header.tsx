@@ -12,7 +12,7 @@ import { useState } from "react";
 
 const Header = () => {
   const router = useRouter();
-  const { isLogged, logout, user } = useAuth();
+  const { isLogged, logout } = useAuth();
   const { categories } = usePosts();
   const [isActiveMenu, setIsActiveMenu] = useState<boolean>(false);
 
@@ -93,18 +93,17 @@ const Header = () => {
             </button>
             <div>
               <img
-                src={
-                  user.avatar?.length > 0 ? user.avatar : "/assets/perfil.jpeg"
-                }
+                src="/assets/perfil.png"
                 alt="avatar"
                 width={40}
                 height={40}
               />
-              <Link href="/me">
+              {/* future feature  */}
+              {/* <Link href="/me">
                 <div>
                   <img src="/assets/icons/edit.svg" alt="editar" />
                 </div>
-              </Link>
+              </Link> */}
             </div>
           </div>
         ) : (

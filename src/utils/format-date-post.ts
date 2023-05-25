@@ -3,6 +3,6 @@ export const formatDatePost = (value: string) => {
   return Intl.DateTimeFormat("pt-br", {
     day: "numeric",
     month: "short",
-    year: "numeric",
+    // year: "numeric",
   }).format(date);
 };

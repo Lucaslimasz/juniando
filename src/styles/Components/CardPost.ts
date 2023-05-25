@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   max-width: 21rem;
+
   &:hover {
     cursor: pointer;
   }
@@ -47,28 +48,30 @@ export const Container = styled.div`
         }
       }
     }
+
+    > p {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      b {
+        display: inline;
+      }
+    }
   }
 
   h1 {
     font-size: 1.25rem;
     font-weight: 700;
     margin: 0.625rem 0;
-
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
   }
 
   .content {
     font-size: 0.75rem;
     line-height: 1.1rem;
-
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
 
     h1,
     h2,
