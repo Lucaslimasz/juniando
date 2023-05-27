@@ -9,4 +9,5 @@ export const SignInSchema = Yup.object().shape({
 export const initialValues = {
   email: "",
   password: "",
+  confirmPassword: "",
 };

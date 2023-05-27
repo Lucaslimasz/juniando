@@ -14,6 +14,7 @@ import { useAuth } from "hooks/useAuth";
 interface ISignInValues {
   email: string;
   password: string;
+  confirmPassword: string;
 }
 
 const Login = () => {
