@@ -9,7 +9,7 @@ import {
 import { useRouter } from "next/router";
 import Cookie from "js-cookie";
 
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 interface IAuthProvider {
   children: ReactNode;
