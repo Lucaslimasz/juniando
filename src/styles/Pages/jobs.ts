@@ -35,6 +35,10 @@ export const Body = styled.div`
     font-size: 1.5rem;
     margin-bottom: 2.625rem;
   }
+
+  @media (max-width: 500px) {
+    padding: 0 1rem;
+  }
 `;
 
 export const ContainerTags = styled.div`

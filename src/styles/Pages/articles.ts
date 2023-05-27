@@ -4,6 +4,10 @@ export const Container = styled.div`
   max-width: 70rem;
   padding: 0 2rem;
   margin: 0 auto 2rem;
+
+  @media (max-width: 500px) {
+    padding: 0 1rem;
+  }
 `;
 
 export const Posts = styled.div`
@@ -25,6 +29,10 @@ export const Posts = styled.div`
   }
 
   @media (max-width: 500px) {
+    gap: 0.7rem;
+  }
+
+  @media (max-width: 460px) {
     display: flex;
     flex-wrap: wrap;
   }

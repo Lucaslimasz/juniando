@@ -40,10 +40,6 @@ const Register = () => {
           errors.email = "Verifique o e-mail digitado";
         }
 
-        if (values.password !== values.confirmPassword) {
-          errors.confirmPassword = "As senhas devem ser iguais";
-        }
-
         const errorEmail = errors.email && touched.email;
         const errorPassword = errors.password && touched.password;
         const errorConfirmPassword = errors.confirmPassword && touched.password;

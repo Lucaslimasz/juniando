@@ -9,6 +9,10 @@ export const Container = styled.div`
   margin-top: 2rem;
   background-color: var(--white);
   overflow-x: hidden;
+
+  @media (max-width: 500px) {
+    padding: 0 1rem;
+  }
 `;
 
 export const Top = styled.div`

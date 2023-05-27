@@ -21,6 +21,10 @@ export const Container = styled.div`
       top: -1.5rem;
     }
   }
+
+  @media (max-width: 500px) {
+    padding: 0 1rem;
+  }
 `;
 
 export const MostViewed = styled.section`

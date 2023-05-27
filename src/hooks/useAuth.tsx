@@ -9,6 +9,8 @@ import {
 import { useRouter } from "next/router";
 import Cookie from "js-cookie";
 
+import { ToastContainer, toast } from "react-toastify";
+
 interface IAuthProvider {
   children: ReactNode;
 }
@@ -31,7 +33,7 @@ interface AuthContextData {
 interface IUserRegister {
   email: string;
   password: string;
-  // confirmPassword: string;
+  confirmPassword: string;
 }
 
 const AuthContext = createContext({} as AuthContextData);
@@ -72,6 +74,17 @@ export function AuthProvider({ children }: IAuthProvider) {
 
   const register = async (values: IUserRegister) => {
     try {
+      const { password, confirmPassword } = values;
+
+      if (password !== confirmPassword) {
+        return toast.error(
+          "As senhas não batem, meu chapa! Dá uma conferida e tenta de novo. "
+        );
+      }
+
+      if (password.length <= 5) {
+        return toast.error("A senha tá muito fraquinha! ");
+      }
       const { data } = await api.post("/register", values);
 
       setUser(data.user);
@@ -82,6 +95,9 @@ export function AuthProvider({ children }: IAuthProvider) {
       router.push("/");
     } catch (error) {
       console.log(error);
+      toast.error(
+        "Opa! Parece que esse e-mail já tá cadastrado. Bora tentar outro, beleza? "
+      );
     }
   };
 
@@ -97,6 +113,9 @@ export function AuthProvider({ children }: IAuthProvider) {
       router.push("/");
     } catch (error) {
       console.log(error);
+      toast.error(
+        "Oops! Parece que o login ou a senha tá errada, meu camarada."
+      );
     }
   };
 
