@@ -1,6 +1,10 @@
 import axios from "axios";
 
+const url =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3333"
+    : "https://juniando-backend.vercel.app";
+
 export const api = axios.create({
-  // baseURL: "https://juniando-backend-production.up.railway.app",
-  baseURL: "http://localhost:3333",
+  baseURL: url,
 });
