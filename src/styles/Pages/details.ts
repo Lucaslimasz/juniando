@@ -24,6 +24,10 @@ export const Top = styled.div`
     border-radius: 0 0 1rem 1rem;
   }
 
+  img {
+    object-fit: cover;
+  }
+
   @media (max-width: 560px) {
     width: 103.5vw;
     left: 0;

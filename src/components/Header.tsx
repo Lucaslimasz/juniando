@@ -108,7 +108,7 @@ const Header = () => {
           </div>
         ) : (
           <Button
-            title="Sign In"
+            title="Admin"
             type="submit"
             onClick={() => router.push("/auth")}
             className="signin"

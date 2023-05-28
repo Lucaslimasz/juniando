@@ -10,6 +10,7 @@ export const Container = styled.div`
 
   img {
     border-radius: 0.875rem 0.875rem 0 0;
+    object-fit: cover;
   }
 
   .InfosContainer {
@@ -32,7 +33,7 @@ export const Container = styled.div`
         height: 0.375rem;
         border-radius: 0.187rem;
         margin: 0rem 0.875rem;
-        background-color: var(--blue-principal);
+        background-color: var(--blue-mid);
       }
 
       @media (max-width: 380px) {

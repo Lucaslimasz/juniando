@@ -24,6 +24,7 @@ export const Container = styled.div`
 
   max-width: 69.375rem;
   padding: 0 2rem;
+
   a {
     span {
       cursor: pointer;
@@ -32,7 +33,6 @@ export const Container = styled.div`
 
   > img {
     width: 8rem;
-    object-fit: cover;
   }
 
   > a {
@@ -72,14 +72,14 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
 
-    width: 7rem;
-    height: 2.75rem;
+    width: 6rem;
+    height: 2.5rem;
     border-radius: 1.5rem;
     background: var(--blue-principal);
     font-family: Montserrat;
     color: white;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .logout {
