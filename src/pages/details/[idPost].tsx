@@ -1,4 +1,3 @@
-import Button from "@components/Button";
 import LoadingPage from "@components/LoadingPage";
 import RelevantMatters from "@components/RelevantMatters";
 import { api } from "@config/api";
