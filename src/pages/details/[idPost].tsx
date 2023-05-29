@@ -1,3 +1,4 @@
+import Button from "@components/Button";
 import LoadingPage from "@components/LoadingPage";
 import RelevantMatters from "@components/RelevantMatters";
 import { api } from "@config/api";
@@ -5,13 +6,24 @@ import { IPosts } from "@interfaces/posts";
 
 import * as S from "@styles/Pages/details";
 import { formatDatePost } from "@utils/format-date-post";
+import { usePosts } from "hooks/usePosts";
 import { GetServerSideProps } from "next";
 import Image from "next/image";
+import { useEffect } from "react";
 
 const Details = ({ post }: { post: IPosts }) => {
+  const { updatedViewsCount } = usePosts();
+
   if (!post) {
     return <LoadingPage />;
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      updatedViewsCount(post._id);
+    }, 1000 * 10); // 10 seconds
+  }, []);
+
   return (
     <S.Container>
       <h1>{post.title}</h1>
@@ -19,6 +31,8 @@ const Details = ({ post }: { post: IPosts }) => {
         <S.Text>{post.author}</S.Text>
         <S.DotDetail></S.DotDetail>
         <S.Text>{formatDatePost(post.createdAt)}</S.Text>
+        <S.DotDetail></S.DotDetail>
+        <S.Text>{post.viewQuantity} Viewsah</S.Text>
       </S.DivInfo>
       <S.Top>
         <Image src={post.image} width={700} height={400} />

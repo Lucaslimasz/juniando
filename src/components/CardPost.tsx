@@ -10,6 +10,7 @@ interface IPropsCardPost {
   author: string;
   date: string;
   image: string;
+  viewQuantity: number;
 }
 
 export default function CardPost({
@@ -19,6 +20,7 @@ export default function CardPost({
   author,
   date,
   image,
+  viewQuantity,
 }: IPropsCardPost) {
   const router = useRouter();
 
@@ -31,6 +33,10 @@ export default function CardPost({
           <span></span>
           <p>{date}</p>
         </div>
+        <span>
+          <Image src="/assets/icons/eye.svg" width={15} height={15} />{" "}
+          {viewQuantity} Views
+        </span>
         <h1>{title}</h1>
         <p
           className="content"

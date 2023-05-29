@@ -19,6 +19,15 @@ export const Container = styled.div`
     margin-top: -0.625rem;
     border-radius: 0rem 0rem 0.875rem 0.875rem;
     background-color: var(--white);
+    > span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 12px;
+      margin-top: 6px;
+      color: var(--dark-60);
+    }
+
     > div {
       display: flex;
       align-items: center;

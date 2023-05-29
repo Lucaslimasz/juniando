@@ -40,6 +40,7 @@ const Home = () => {
                 author={post.author}
                 date={formatDatePost(post.createdAt)}
                 image={post.image}
+                viewQuantity={post.viewQuantity}
               />
             );
           })}

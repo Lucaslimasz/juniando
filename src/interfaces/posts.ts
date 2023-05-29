@@ -15,4 +15,5 @@ export interface IPosts {
   createdAt: string;
   image: string;
   category: string;
+  viewQuantity: number;
 }

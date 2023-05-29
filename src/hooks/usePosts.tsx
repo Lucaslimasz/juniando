@@ -11,6 +11,7 @@ import {
 interface PostsContextData {
   posts: IPosts[];
   categories: ICategories[];
+  updatedViewsCount(id: string): void;
 }
 
 interface ICategories {
@@ -35,8 +36,15 @@ export function PostsProvider({ children }: PropsWithChildren) {
     })();
   }, []);
 
+  const updatedViewsCount = async (id: string) => {
+    const { data } = await api.get<IPosts>(`/posts/content/${id}`);
+    return await api.put(`/posts/${id}`, {
+      viewQuantity: data.viewQuantity + 1,
+    });
+  };
+
   return (
-    <PostsContext.Provider value={{ posts, categories }}>
+    <PostsContext.Provider value={{ posts, categories, updatedViewsCount }}>
       {children}
     </PostsContext.Provider>
   );
