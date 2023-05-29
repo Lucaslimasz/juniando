@@ -31,7 +31,7 @@ const Details = ({ post }: { post: IPosts }) => {
         <S.DotDetail></S.DotDetail>
         <S.Text>{formatDatePost(post.createdAt)}</S.Text>
         <S.DotDetail></S.DotDetail>
-        <S.Text>{post.viewQuantity} Viewsah</S.Text>
+        <S.Text>{post.viewQuantity} View</S.Text>
       </S.DivInfo>
       <S.Top>
         <Image src={post.image} width={700} height={400} />
