@@ -64,7 +64,6 @@ export const Title = styled.h1`
   margin: 1rem 0rem 0.75rem 0rem;
   color: var(--white);
   font-weight: 700;
-  max-width: 80%;
 
   @media (max-width: 560px) {
     font-size: 1.4rem;

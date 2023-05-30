@@ -6,11 +6,17 @@ import * as S from "@styles/Pages/home";
 import { formatDatePost } from "@utils/format-date-post";
 import { usePosts } from "hooks/usePosts";
 import LoadingPage from "@components/LoadingPage";
+import { api } from "@config/api";
+import { IPosts } from "@interfaces/posts";
 
-const Home = () => {
+interface IHomeProps {
+  postMain: IPosts;
+}
+
+const Home = ({ postMain }: IHomeProps) => {
   const { posts } = usePosts();
 
-  if (!posts) {
+  if (!posts || !postMain) {
     return <LoadingPage />;
   }
 
@@ -18,11 +24,10 @@ const Home = () => {
     <S.Container>
       <div>
         <Thumbnail
-          category="Featured"
-          title="Por que e pra que usar ReactJs?"
-          author="Lucas Lima"
-          date="09 de Jul de 2022"
-          background="/assets/banner-thumbnail.png"
+          title={postMain.title}
+          author={postMain.author}
+          date={formatDatePost(postMain.createdAt)}
+          background={postMain.image}
         />
         <RelevantMatters />
       </div>
@@ -51,3 +56,16 @@ const Home = () => {
 };
 
 export default Home;
+
+export const getStaticProps = async () => {
+  const { data } = await api.get("/posts");
+  const indexRandomPost = Math.floor(Math.random() * data.length);
+  const postMain = data[indexRandomPost];
+
+  return {
+    props: {
+      postMain,
+    },
+    revalidate: 60 * 60 * 24, // 24 hours
+  };
+};
