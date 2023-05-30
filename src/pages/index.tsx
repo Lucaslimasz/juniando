@@ -4,11 +4,34 @@ import Thumbnail from "@components/Thumbnail";
 
 import * as S from "@styles/Pages/home";
 import { formatDatePost } from "@utils/format-date-post";
-import { usePosts } from "hooks/usePosts";
 import LoadingPage from "@components/LoadingPage";
+import Pagination from "@components/Pagination";
+import { useEffect, useState } from "react";
+import { api } from "@config/api";
+import { IPosts } from "@interfaces/posts";
+
+export const PAGE_SIZE = 1;
+export const LIMIT = 9;
 
 const Home = () => {
-  const { posts } = usePosts();
+  const [posts, setPosts] = useState<IPosts | undefined>();
+  const [page, setPage] = useState<number>(1);
+
+  useEffect(() => {
+    api
+      .get(`/posts`, {
+        params: {
+          page: page,
+          limit: LIMIT,
+        },
+      })
+      .then((response) => {
+        setPosts(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [page]);
 
   if (!posts) {
     return <LoadingPage />;
@@ -30,7 +53,7 @@ const Home = () => {
       <S.MostViewed>
         <h2>Mais visualizados</h2>
         <S.ContainerCardPost>
-          {posts?.map((post) => {
+          {posts.posts?.map((post) => {
             return (
               <CardPost
                 key={post._id}
@@ -45,6 +68,13 @@ const Home = () => {
           })}
         </S.ContainerCardPost>
       </S.MostViewed>
+
+      <Pagination
+        totalCount={posts.totalPages}
+        onPageChange={(page) => setPage(page)}
+        currentPage={posts.currentPage}
+        pageSize={PAGE_SIZE}
+      />
     </S.Container>
   );
 };

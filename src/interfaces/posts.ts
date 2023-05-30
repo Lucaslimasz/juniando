@@ -1,13 +1,4 @@
 export interface IPost {
-  id: string;
-  title: string;
-  content: string;
-  author: string;
-  date: string;
-  image: string;
-}
-
-export interface IPosts {
   _id: string;
   title: string;
   content: string;
@@ -15,4 +6,10 @@ export interface IPosts {
   createdAt: string;
   image: string;
   category: string;
+}
+
+export interface IPosts {
+  posts: IPost[];
+  currentPage: number;
+  totalPages: number;
 }
