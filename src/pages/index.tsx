@@ -4,17 +4,40 @@ import Thumbnail from "@components/Thumbnail";
 
 import * as S from "@styles/Pages/home";
 import { formatDatePost } from "@utils/format-date-post";
-import { usePosts } from "hooks/usePosts";
 import LoadingPage from "@components/LoadingPage";
+import Pagination from "@components/Pagination";
+import { useEffect, useState } from "react";
 import { api } from "@config/api";
-import { IPosts } from "@interfaces/posts";
+import { IPost, IPosts } from "@interfaces/posts";
+import { usePosts } from "hooks/usePosts";
+
+export const PAGE_SIZE = 1;
+export const LIMIT = 9;
 
 interface IHomeProps {
-  postMain: IPosts;
+  postMain: IPost;
 }
 
 const Home = ({ postMain }: IHomeProps) => {
   const { posts } = usePosts();
+  const [postsData, setPostsData] = useState<IPosts | undefined>();
+  const [page, setPage] = useState<number>(1);
+
+  useEffect(() => {
+    api
+      .get(`/posts`, {
+        params: {
+          page: page,
+          limit: LIMIT,
+        },
+      })
+      .then((response) => {
+        setPostsData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [page]);
 
   if (!posts || !postMain) {
     return <LoadingPage />;
@@ -35,7 +58,7 @@ const Home = ({ postMain }: IHomeProps) => {
       <S.MostViewed>
         <h2>Mais visualizados</h2>
         <S.ContainerCardPost>
-          {posts?.map((post) => {
+          {postsData?.posts?.map((post) => {
             return (
               <CardPost
                 key={post._id}
@@ -51,6 +74,13 @@ const Home = ({ postMain }: IHomeProps) => {
           })}
         </S.ContainerCardPost>
       </S.MostViewed>
+
+      <Pagination
+        totalCount={postsData?.totalPages as number}
+        onPageChange={(page) => setPage(page)}
+        currentPage={postsData?.currentPage as number}
+        pageSize={PAGE_SIZE}
+      />
     </S.Container>
   );
 };
@@ -59,8 +89,8 @@ export default Home;
 
 export const getStaticProps = async () => {
   const { data } = await api.get("/posts");
-  const indexRandomPost = Math.floor(Math.random() * data.length);
-  const postMain = data[indexRandomPost];
+  const indexRandomPost = Math.floor(Math.random() * data.posts.length);
+  const postMain = data.posts[indexRandomPost];
 
   return {
     props: {

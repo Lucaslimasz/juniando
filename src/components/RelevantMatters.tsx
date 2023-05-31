@@ -13,7 +13,7 @@ const RelevantMatters = () => {
   const currentCategoriesSorted = () => {
     const categoryCount: CategoryCount = {};
 
-    posts.forEach((post) => {
+    posts?.posts.forEach((post) => {
       const categoryId = post.category;
       if (categoryCount[categoryId]) {
         categoryCount[categoryId]++;
@@ -52,8 +52,9 @@ const RelevantMatters = () => {
                 <b>
                   (
                   {
-                    posts.filter((item) => item.category === category?._id)
-                      .length
+                    posts?.posts.filter(
+                      (item) => item.category === category?._id
+                    ).length
                   }
                   )
                 </b>
