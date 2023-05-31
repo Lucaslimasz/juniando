@@ -1,7 +1,7 @@
 import LoadingPage from "@components/LoadingPage";
 import RelevantMatters from "@components/RelevantMatters";
 import { api } from "@config/api";
-import { IPosts } from "@interfaces/posts";
+import { IPost } from "@interfaces/posts";
 
 import * as S from "@styles/Pages/details";
 import { formatDatePost } from "@utils/format-date-post";
@@ -10,7 +10,7 @@ import { GetServerSideProps } from "next";
 import Image from "next/image";
 import { useEffect } from "react";
 
-const Details = ({ post }: { post: IPosts }) => {
+const Details = ({ post }: { post: IPost }) => {
   const { updatedViewsCount } = usePosts();
 
   if (!post) {
