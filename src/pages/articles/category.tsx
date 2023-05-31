@@ -82,7 +82,6 @@ const Articles = () => {
         {posts.posts
           .filter((item: IPost) => item.category === categorySelected?._id)
           .map((post: IPost) => {
-            console.log(post);
             return (
               <CardPost
                 key={post._id}
