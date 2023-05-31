@@ -21,12 +21,12 @@ export const Main = styled.main`
     padding-bottom: 7rem;
 
     h1 {
-      font-size: 3.1rem;
+      font-size: 3.25rem;
     }
 
     p {
       margin-top: 0.75rem;
-      font-size: 1.2rem;
+      font-size: 1.375rem;
     }
   }
 
@@ -46,23 +46,24 @@ export const Main = styled.main`
 `;
 
 export const Container = styled.div`
-  background-color: var(--light-900);
-  height: 100vh;
+  background-color: #f0f0f5;
+  max-height: 40rem;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-column-gap: 2rem;
-  padding-inline: 9.6rem;
+  padding-left: 9.6rem;
   align-items: center;
   justify-items: center;
+  padding-block: 5rem;
 
   div {
     h2 {
-      font-size: 1.9rem;
+      font-size: 2rem;
     }
 
     p {
       margin-top: 1.75rem;
-      font-size: 1.2rem;
+      font-size: 1.375rem;
     }
 
     img {

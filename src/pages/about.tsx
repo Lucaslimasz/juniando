@@ -35,7 +35,7 @@ const About = () => {
         <div>
           <Image
             src={peopleImg}
-            alt="Foto de homem em um escritoório sorrindo para a câmera e segurando um notebook"
+            alt="Foto de homem em um escritório sorrindo para a câmera e segurando um notebook"
             width={436}
             height={476}
           />
