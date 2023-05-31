@@ -62,7 +62,7 @@ const Header = () => {
             }
           }
           if (route === "/articles") {
-            routeName = `/articles/category`;
+            routeName = `/articles/${categories[0]?.name}`;
           } else {
             routeName = route;
           }
