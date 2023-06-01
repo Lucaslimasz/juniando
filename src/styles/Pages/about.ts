@@ -13,7 +13,7 @@ export const Main = styled.main`
   flex: 1;
   margin-top: 5rem;
   max-height: 90vh;
-  height: calc(100vh - 4rem);
+  height: 60vh;
 
   div {
     max-width: 32.75rem;
