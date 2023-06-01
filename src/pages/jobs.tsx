@@ -2,10 +2,11 @@ import LoadingPage from "@components/LoadingPage";
 import Tags from "@components/Tags";
 import { api } from "@config/api";
 import * as S from "@styles/Pages/jobs";
-import { GetServerSideProps } from "next";
 import Image from "next/image";
 
 import { useEffect, useState } from "react";
+import { LIMIT } from ".";
+import Pagination from "@components/Pagination";
 
 interface IJob {
   _id: string;
@@ -26,14 +27,16 @@ interface ICategory {
 
 interface IJobs {
   jobs: IJob[];
-  categories: ICategory[];
+  currentPage: number;
+  totalPages: number;
 }
 
-const Jobs = ({ jobs, categories }: IJobs) => {
-  const [currentCategory, setCurrentCategory] = useState<ICategory>(
-    categories[0] || ({} as ICategory)
-  );
-  const [jobsView, setJobsView] = useState<IJob[]>();
+const Jobs = () => {
+  const [jobs, setJobs] = useState<IJobs>();
+  const [categories, setCategories] = useState<ICategory[]>([]);
+  const [currentCategory, setCurrentCategory] = useState<ICategory>();
+  const [page, setPage] = useState<number>(1);
+  const [total, setTotal] = useState<number>(1);
 
   const handleSegmentArea = (area: string) => {
     const category = categories.filter((cat) => cat.name === area)[0];
@@ -41,11 +44,33 @@ const Jobs = ({ jobs, categories }: IJobs) => {
   };
 
   useEffect(() => {
-    const response = jobs.filter(
-      (item) => item.categoryJob === currentCategory._id
-    );
-    setJobsView(response);
-  }, [currentCategory]);
+    api.get("/categoriesJobs").then((response) => {
+      setCategories(response.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (currentCategory) {
+      api
+        .get(`/jobs/${currentCategory?._id}`, {
+          params: {
+            page: page,
+            limit: LIMIT,
+          },
+        })
+        .then((response) => {
+          setPage(response.data.currentPage);
+          setJobs(response.data);
+          setTotal(response.data.totalPages);
+        });
+    }
+  }, [page, currentCategory]);
+
+  useEffect(() => {
+    if (categories && categories.length > 0) {
+      setCurrentCategory(categories[0]);
+    }
+  }, [categories]);
 
   if (!jobs || !categories) {
     return <LoadingPage />;
@@ -65,14 +90,14 @@ const Jobs = ({ jobs, categories }: IJobs) => {
             <Tags
               key={_id}
               title={name}
-              active={name === currentCategory.name}
+              active={name === currentCategory?.name}
               onClick={() => handleSegmentArea(name)}
             />
           ))}
         </S.ContainerTags>
         <h1>Vagas Disponíveis</h1>
         <S.ContainerJobs>
-          {jobsView?.map((job) => {
+          {jobs.jobs.map((job) => {
             return (
               <S.Job key={job._id}>
                 <S.Top>
@@ -110,21 +135,15 @@ const Jobs = ({ jobs, categories }: IJobs) => {
             );
           })}
         </S.ContainerJobs>
+        <Pagination
+          totalCount={total}
+          onPageChange={setPage}
+          currentPage={page}
+          pageSize={1}
+        />
       </S.Body>
     </S.Container>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  const response: { data: IJob[] } = await api.get("/jobs");
-  const categoriesJobs: { data: IJob[] } = await api.get("/categoriesJobs");
-
-  return {
-    props: {
-      jobs: response.data,
-      categories: categoriesJobs.data,
-    },
-  };
 };
 
 export default Jobs;

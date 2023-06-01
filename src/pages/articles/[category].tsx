@@ -60,7 +60,7 @@ const Articles = ({ currentCategory }: IArticlesProps) => {
         ))}
       </S.Tags>
       <S.Posts>
-        {posts
+        {posts.posts
           ?.filter((item) => item.category === categorySelected?._id)
           .map((post) => {
             return (

@@ -2,7 +2,6 @@ import * as S from "@styles/Components/Thumbnail";
 import { useRouter } from "next/router";
 
 interface IPropsThumbnail {
-  category: string;
   title: string;
   author: string;
   date: string;
@@ -10,7 +9,6 @@ interface IPropsThumbnail {
 }
 
 export default function Thumbnail({
-  category,
   title,
   author,
   date,
@@ -21,9 +19,6 @@ export default function Thumbnail({
   return (
     <S.Container bg={background} onClick={() => router.push("/details")}>
       <S.ContainerCategory>
-        <S.ButtonCategory>
-          <S.TextButton>{category}</S.TextButton>
-        </S.ButtonCategory>
         <S.Title>{title}</S.Title>
         <S.DivInfo>
           <S.Text>{author}</S.Text>

@@ -13,7 +13,6 @@ export const Container = styled.div`
 export const Posts = styled.div`
   gap: 1.5rem;
   margin-top: 2rem;
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 
