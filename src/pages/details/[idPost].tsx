@@ -1,14 +1,17 @@
-import LoadingPage from "@components/LoadingPage";
-import RelevantMatters from "@components/RelevantMatters";
+import { useEffect } from "react";
+import { GetServerSideProps } from "next";
+import Image from "next/image";
+import * as S from "@styles/Pages/details";
+
 import { api } from "@config/api";
 import { IPost } from "@interfaces/posts";
 
-import * as S from "@styles/Pages/details";
 import { formatDatePost } from "@utils/format-date-post";
 import { usePosts } from "hooks/usePosts";
-import { GetServerSideProps } from "next";
-import Image from "next/image";
-import { useEffect } from "react";
+
+import LoadingPage from "@components/LoadingPage";
+import RelevantMatters from "@components/RelevantMatters";
+import { shareLinkPost } from "@utils/copy-url";
 
 const Details = ({ post }: { post: IPost }) => {
   const { updatedViewsCount } = usePosts();
@@ -32,9 +35,13 @@ const Details = ({ post }: { post: IPost }) => {
         <S.Text>{formatDatePost(post.createdAt)}</S.Text>
         <S.DotDetail></S.DotDetail>
         <S.Text>{post.viewQuantity} View</S.Text>
+        <button onClick={shareLinkPost}>
+          <Image src="/assets/icons/share.svg" width={20} height={20} />
+          <p>Compartilhe</p>
+        </button>
       </S.DivInfo>
       <S.Top>
-        <Image src={post.image} width={700} height={400} />
+        <Image src={post.image} objectFit="none" width={700} height={400} />
         <RelevantMatters />
       </S.Top>
       <S.Body>

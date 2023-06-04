@@ -13,17 +13,21 @@ export const Container = styled.div`
   }
 
   @media (max-width: 600px) {
+    padding-top: 1.5rem;
     > div {
       width: 100vw;
 
       position: relative;
       left: -2rem;
-      top: -1.5rem;
+      top: 4rem;
     }
   }
 
   @media (max-width: 500px) {
     padding: 0 1rem;
+    > div {
+      left: -1rem;
+    }
   }
 `;
 
@@ -48,18 +52,13 @@ export const MostViewed = styled.section`
     }
   }
 
-  @media (max-width: 560px) {
-    margin-top: 1.5rem;
-  }
-
-  @media (max-width: 360px) {
-    margin-top: 0.75rem;
+  @media (max-width: 600px) {
+    margin-top: 7rem;
   }
 `;
 
 export const ContainerCardPost = styled.div`
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   gap: 1.5rem;
 

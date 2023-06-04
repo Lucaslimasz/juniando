@@ -6,6 +6,7 @@ interface IPropsThumbnail {
   author: string;
   date: string;
   background: string;
+  id: string;
 }
 
 export default function Thumbnail({
@@ -13,11 +14,12 @@ export default function Thumbnail({
   author,
   date,
   background,
+  id,
 }: IPropsThumbnail) {
   const router = useRouter();
 
   return (
-    <S.Container bg={background} onClick={() => router.push("/details")}>
+    <S.Container bg={background} onClick={() => router.push(`/details/${id}`)}>
       <S.ContainerCategory>
         <S.Title>{title}</S.Title>
         <S.DivInfo>

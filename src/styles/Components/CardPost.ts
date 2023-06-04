@@ -4,10 +4,11 @@ export const Container = styled.div`
   width: 100%;
   max-width: 21rem;
 
+  position: relative;
+
   &:hover {
     cursor: pointer;
   }
-
   img {
     border-radius: 0.875rem 0.875rem 0 0;
     object-fit: cover;

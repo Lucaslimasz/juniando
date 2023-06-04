@@ -51,6 +51,7 @@ const Home = ({ postMain }: IHomeProps) => {
           author={postMain.author}
           date={formatDatePost(postMain.createdAt)}
           background={postMain.image}
+          id={postMain._id}
         />
         <RelevantMatters />
       </div>
