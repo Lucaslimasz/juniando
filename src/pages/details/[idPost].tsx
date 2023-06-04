@@ -33,9 +33,9 @@ const Details = ({ post }: { post: IPost }) => {
         <title>{post.title} | Juniando</title>
         <meta
           name="description"
-          content={post.content.replace(/<[^>]*>/g, "").substring(0, 108)}
+          content={post.content.replace(/<[^>]*>/g, "").substring(0, 300)}
         />
-        <meta property="og:image" content="/assets/icons/logo-header.svg" />
+        <meta property="og:image" content={post.image} />
       </Head>
       <S.Container>
         <h1>{post.title}</h1>
