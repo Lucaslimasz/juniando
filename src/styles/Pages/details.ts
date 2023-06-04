@@ -26,7 +26,7 @@ export const Top = styled.div`
   }
 
   img {
-    object-fit: cover;
+    object-fit: cover !important;
   }
 
   @media (max-width: 1000px) {

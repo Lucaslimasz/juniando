@@ -17,7 +17,7 @@ export default function Footer() {
 
         <Image
           className="computer"
-          src="/assets/computer.svg"
+          src="/assets/icons/computer.svg"
           width={200}
           height={200}
         />

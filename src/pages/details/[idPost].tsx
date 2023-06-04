@@ -30,7 +30,7 @@ const Details = ({ post }: { post: IPost }) => {
   return (
     <>
       <Head>
-        <title>{post.title}</title>
+        <title>{post.title} | Juniando</title>
         <meta
           name="description"
           content={post.content.replace(/<[^>]*>/g, "").substring(0, 108)}

@@ -27,7 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             name="description"
             content="Oportunidades de trabalho para Júniors e vagas de programação em FrontEnd, BackEnd, Estágio, DevOps, Javascript, Reactjs,... para você Júnior!"
           />
-          <meta property="og:image" content="/assets/icons/logo-header.svg" />
+          <meta property="og:image" content="/assets/jr-summary.png" />
         </Head>
         <S.Wrapper>
           {isOutOfApplication && <Header />}
