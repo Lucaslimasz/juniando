@@ -4,28 +4,28 @@ import { useRouter } from "next/router";
 import * as S from "@styles/Components/CardPost";
 
 interface IPropsCardPost {
-  id: string;
   title: string;
   content: string;
   author: string;
   date: string;
   image: string;
   viewQuantity: number;
+  slug: string;
 }
 
 export default function CardPost({
-  id,
   title,
   content,
   author,
   date,
   image,
   viewQuantity,
+  slug,
 }: IPropsCardPost) {
   const router = useRouter();
 
   return (
-    <S.Container onClick={() => router.push(`/details/${id}`)}>
+    <S.Container onClick={() => router.push(`/details/${slug}`)}>
       <Image src={image} width={360} height={227} />
       <div className="InfosContainer">
         <div>

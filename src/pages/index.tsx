@@ -20,7 +20,7 @@ interface IHomeProps {
 
 const Home = ({ postMain }: IHomeProps) => {
   const { posts } = usePosts();
-  const [postsData, setPostsData] = useState<IPosts | undefined>();
+  const [postsData, setPostsData] = useState<IPosts>({} as IPosts);
   const [page, setPage] = useState<number>(1);
 
   useEffect(() => {
@@ -43,6 +43,8 @@ const Home = ({ postMain }: IHomeProps) => {
     return <LoadingPage />;
   }
 
+  console.log(postsData);
+
   return (
     <S.Container>
       <div>
@@ -63,7 +65,7 @@ const Home = ({ postMain }: IHomeProps) => {
             return (
               <CardPost
                 key={post._id}
-                id={post._id}
+                slug={post.slug}
                 title={post.title}
                 content={post.content}
                 author={post.author}

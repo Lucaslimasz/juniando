@@ -23,7 +23,7 @@ const Details = ({ post }: { post: IPost }) => {
 
   useEffect(() => {
     setTimeout(() => {
-      updatedViewsCount(post._id);
+      updatedViewsCount(post.slug);
     }, 1000 * 10); // 10 seconds
   }, []);
 
@@ -62,10 +62,10 @@ const Details = ({ post }: { post: IPost }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const id = ctx.params?.idPost;
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+  const slug = params?.slug;
 
-  const { data } = await api.get(`/posts/content/${id}`);
+  const { data } = await api.get(`/posts/content/${slug}`);
 
   return {
     props: {

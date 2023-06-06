@@ -40,9 +40,10 @@ export function PostsProvider({ children }: PropsWithChildren) {
     })();
   }, []);
 
-  const updatedViewsCount = async (id: string) => {
-    const { data } = await api.get<IPost>(`/posts/content/${id}`);
-    return await api.put(`/posts/${id}`, {
+  const updatedViewsCount = async (slug: string) => {
+    const { data } = await api.get<IPost>(`/posts/content/${slug}`);
+    console.log(data);
+    return await api.put(`/posts/${data._id}`, {
       viewQuantity: data.viewQuantity + 1,
     });
   };

@@ -66,7 +66,7 @@ const Articles = ({ currentCategory }: IArticlesProps) => {
             return (
               <CardPost
                 key={post._id}
-                id={post._id}
+                slug={post.slug}
                 title={post.title}
                 content={post.content}
                 author={post.author}

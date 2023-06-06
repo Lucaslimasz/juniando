@@ -7,6 +7,7 @@ export interface IPost {
   image: string;
   category: string;
   viewQuantity: number;
+  slug: string;
 }
 
 export interface IPosts {
