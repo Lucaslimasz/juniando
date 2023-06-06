@@ -96,5 +96,7 @@ export const Body = styled.div`
 
   > div {
     word-break: break-word;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 18px;
   }
 `;
