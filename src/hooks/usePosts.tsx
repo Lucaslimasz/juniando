@@ -28,6 +28,7 @@ export function PostsProvider({ children }: PropsWithChildren) {
   const [posts, setPosts] = useState<IPosts>();
   const [categories, setCategories] = useState<ICategories[]>([]);
   const [page, setPage] = useState<number>(1);
+
   useEffect(() => {
     (async () => {
       const [responsePosts, responseCategories] = await Promise.all([

@@ -50,7 +50,7 @@ export default class MyDocument extends Document {
 
           <link
             rel="shortcut icon"
-            href="assets/icons/favicon.svg"
+            href="/assets/icons/favicon.svg"
             type="image/png"
           />
         </Head>
