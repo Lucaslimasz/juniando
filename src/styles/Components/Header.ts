@@ -25,8 +25,10 @@ export const Container = styled.div`
   max-width: 69.375rem;
   padding: 0 2rem;
 
-  span {
-    cursor: pointer !important;
+  a {
+    span {
+      cursor: pointer;
+    }
   }
 
   > img {

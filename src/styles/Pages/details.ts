@@ -99,13 +99,4 @@ export const Body = styled.div`
     font-family: "Source Sans Pro", sans-serif;
     font-size: 18px;
   }
-
-  @media (max-width: 900px) {
-    > div {
-      img {
-        width: 100% !important;
-        height: auto !important;
-      }
-    }
-  }
 `;
