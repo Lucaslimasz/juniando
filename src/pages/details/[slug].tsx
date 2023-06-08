@@ -14,11 +14,8 @@ import RelevantMatters from "@components/RelevantMatters";
 import { shareLinkPost } from "@utils/copy-url";
 import Head from "next/head";
 
-let image = "";
-
 const Details = ({ post }: { post: IPost }) => {
   const { updatedViewsCount } = usePosts();
-  image = post.image;
 
   if (!post) {
     return <LoadingPage />;
