@@ -1,4 +1,5 @@
 import type { AppProps } from "next/app";
+import Head from "next/head";
 import Global from "@styles/global";
 import { useRouter } from "next/router";
 
@@ -20,6 +21,14 @@ function MyApp({ Component, pageProps }: AppProps) {
     <AuthProvider>
       <PostsProvider>
         <Global />
+        <Head>
+          <title>Juniando</title>
+          <meta
+            name="description"
+            content="Oportunidades de trabalho para Júniors e vagas de programação em FrontEnd, BackEnd, Estágio, DevOps, Javascript, Reactjs,... para você Júnior!"
+          />
+          <meta property="og:image" content="/assets/jr-summary.png" />
+        </Head>
         <S.Wrapper>
           {isOutOfApplication && <Header />}
           <Component {...pageProps} />
