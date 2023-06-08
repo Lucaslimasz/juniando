@@ -65,14 +65,6 @@ const Details = ({ post }: { post: IPost }) => {
   );
 };
 
-Details.getInitialProps = () => {
-  return {
-    pageProps: {
-      image,
-    },
-  };
-};
-
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const slug = params?.slug;
 
