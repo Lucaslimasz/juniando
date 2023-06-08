@@ -3,3 +3,12 @@
 
 // NOTE: This file should not be edited
 // see https://nextjs.org/docs/basic-features/typescript for more information.
+type PageProps = {
+  image?: string;
+};
+
+declare module "next/document" {
+  interface DocumentContext {
+    pageProps: PageProps;
+  }
+}

@@ -35,6 +35,9 @@ export default class MyDocument extends Document {
   }
 
   render() {
+    const { pageProps } = this.props;
+    const imageUrl = pageProps?.image ?? "/assets/jr-summary.png";
+
     return (
       <Html>
         <Head>
@@ -53,6 +56,14 @@ export default class MyDocument extends Document {
             href="/assets/icons/favicon.svg"
             type="image/png"
           />
+
+          <title>Juniando</title>
+
+          <meta
+            name="description"
+            content="Oportunidades de trabalho para Júniors e vagas de programação em FrontEnd, BackEnd, Estágio, DevOps, Javascript, Reactjs,... para você Júnior!"
+          />
+          <meta property="og:image" content={imageUrl} />
         </Head>
         <body>
           <Main />
