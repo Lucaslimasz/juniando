@@ -92,11 +92,25 @@ export const Body = styled.div`
   font-size: 1.125rem;
   line-height: 1.5rem;
   margin-top: 2.125rem;
-  /* max-width: 43.75rem; */
+  overflow-y: hidden;
 
   > div {
     word-break: break-word;
     font-family: "Source Sans Pro", sans-serif;
-    font-size: 18px;
+
+    span,
+    p {
+      font-size: 18px !important;
+      line-height: 27px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    > div {
+      span,
+      p {
+        font-size: 16px !important;
+      }
+    }
   }
 `;
